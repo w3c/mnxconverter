@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mnx>
+  <score>
+    <mnx-common profile="standard">
+      <global>
+        <measure>
+          <directions>
+            <time signature="4/4"/>
+            <key fifths="-2"/>
+          </directions>
+        </measure>
+        <measure/>
+        <measure/>
+      </global>
+      <part>
+        <part-name>Music</part-name>
+        <measure>
+          <directions>
+            <clef sign="G" line="2"/>
+          </directions>
+          <sequence>
+            <event value="/4">
+              <note pitch="F4"/>
+            </event>
+            <event value="/4">
+              <note pitch="G4"/>
+            </event>
+            <event value="/4">
+              <note pitch="G#4" accidental="sharp"/>
+            </event>
+            <event value="/4">
+              <note pitch="A4"/>
+            </event>
+          </sequence>
+        </measure>
+        <measure>
+          <sequence>
+            <event value="/2">
+              <note pitch="Bb4"/>
+            </event>
+            <event value="/4">
+              <note pitch="Db5" accidental="flat"/>
+            </event>
+            <event value="/4">
+              <note pitch="Db5"/>
+            </event>
+          </sequence>
+        </measure>
+        <measure>
+          <sequence>
+            <event value="/1">
+              <note pitch="D5" accidental="natural"/>
+            </event>
+          </sequence>
+        </measure>
+      </part>
+    </mnx-common>
+  </score>
+</mnx>

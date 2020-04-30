@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mnx>
+  <score>
+    <mnx-common profile="standard">
+      <global>
+        <measure>
+          <directions>
+            <time signature="4/4"/>
+          </directions>
+        </measure>
+        <measure/>
+      </global>
+      <part>
+        <part-name>Music</part-name>
+        <measure>
+          <directions>
+            <clef sign="G" line="2"/>
+          </directions>
+          <sequence>
+            <tuplet inner="3/8" outer="2/8">
+              <event value="/4">
+                <note pitch="C5"/>
+              </event>
+              <event value="/8">
+                <note pitch="G4"/>
+              </event>
+            </tuplet>
+            <beamed>
+              <tuplet inner="3/8" outer="2/8">
+                <event value="/8">
+                  <note pitch="E4"/>
+                </event>
+                <event value="/8">
+                  <note pitch="F4"/>
+                </event>
+                <event value="/8">
+                  <note pitch="G4"/>
+                </event>
+              </tuplet>
+            </beamed>
+            <event value="/4">
+              <note pitch="E5"/>
+            </event>
+            <event value="/4">
+              <note pitch="D5"/>
+            </event>
+          </sequence>
+        </measure>
+        <measure>
+          <sequence>
+            <tuplet inner="6/4" outer="4/4">
+              <event value="/4">
+                <note pitch="C5"/>
+              </event>
+              <event value="/4">
+                <note pitch="D5"/>
+              </event>
+              <event value="/4">
+                <note pitch="C5"/>
+              </event>
+              <event value="/4">
+                <note pitch="G4"/>
+              </event>
+              <event value="/4">
+                <note pitch="E5"/>
+              </event>
+              <event value="/4">
+                <note pitch="C5"/>
+              </event>
+            </tuplet>
+          </sequence>
+        </measure>
+      </part>
+    </mnx-common>
+  </score>
+</mnx>
