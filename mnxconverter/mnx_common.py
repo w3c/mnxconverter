@@ -65,7 +65,6 @@ class MNXCommonWriter:
         measure_el = etree.Element('measure')
         direction_els = []
         if bar.timesig and bar.timesig_changed():
-            # directions_el = quick_element(measure_el, 'directions')
             time_el = quick_element(None, 'time', attrs={
                 'signature': microformat_timesig(bar.timesig),
             })
