@@ -74,6 +74,18 @@ class MNXCommonWriter:
                 'fifths': microformat_keysig(bar.keysig),
             })
             direction_els.append(key_el)
+        if bar.start_repeat:
+            repeat_el = quick_element(None, 'repeat', attrs={
+                'type': 'start',
+            })
+            direction_els.append(repeat_el)
+        if bar.end_repeat:
+            repeat_el = quick_element(None, 'repeat', attrs={
+                'type': 'end',
+            })
+            if bar.end_repeat > 2:
+                repeat_el.attrib['times'] = str(bar.end_repeat)
+            direction_els.append(repeat_el)
         if direction_els:
             directions_el = quick_element(measure_el, 'directions')
             for direction_el in direction_els:

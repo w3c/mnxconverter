@@ -253,6 +253,8 @@ class MusicXMLReader:
                 clef = self.parse_measure_attributes(el, bar, part, bar_part)
             elif tag == 'backup':
                 position -= self.parse_forward_backup(el)
+            elif tag == 'barline':
+                self.parse_barline(el, bar)
             elif tag == 'direction':
                 self.parse_direction(el)
             elif tag == 'forward':
@@ -322,6 +324,23 @@ class MusicXMLReader:
             return int(divisions_el.text)
         except ValueError:
             raise NotationDataError(f'Invalid <divisions> value "{divisions_el.text}".')
+
+    def parse_barline(self, barline_el, bar):
+        for el in barline_el:
+            tag = el.tag
+            if tag == 'repeat':
+                try:
+                    direction = el.attrib['direction']
+                except KeyError:
+                    raise NotationDataError("<repeat> missing 'direction' attribute.")
+                if direction == 'forward':
+                    bar.start_repeat = True
+                elif direction == 'backward':
+                    try:
+                        times = int(el.attrib['times'])
+                    except (ValueError, KeyError):
+                        times = 2
+                    bar.end_repeat = times
 
     def parse_forward_backup(self, el):
         duration_el = el.find('duration')

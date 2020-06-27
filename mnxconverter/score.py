@@ -43,6 +43,8 @@ class Bar:
         self.idx = idx # Zero-based index of this bar in the score.
         self.timesig = timesig
         self.keysig = keysig # In concert pitch.
+        self.start_repeat = False
+        self.end_repeat = 0
         self.bar_parts = {} # Maps part_ids to BarParts.
 
     def previous(self):
