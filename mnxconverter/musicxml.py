@@ -51,6 +51,11 @@ OCTAVE_SHIFT_TYPES_FOR_IMPORT = {
     ('22', 'down'): OctaveShift.TYPE_22MA,
     ('22', 'up'): OctaveShift.TYPE_22MB,
 }
+ENDING_TYPES_FOR_IMPORT = {
+    'start': Ending.TYPE_START,
+    'stop': Ending.TYPE_STOP,
+    'discontinue': Ending.TYPE_DISCONTINUE,
+}
 DEFAULT_KEYSIG = 0
 
 class NotationImportError(Exception):
@@ -328,7 +333,9 @@ class MusicXMLReader:
     def parse_barline(self, barline_el, bar):
         for el in barline_el:
             tag = el.tag
-            if tag == 'repeat':
+            if tag == 'ending':
+                self.parse_ending(el, bar)
+            elif tag == 'repeat':
                 try:
                     direction = el.attrib['direction']
                 except KeyError:
@@ -341,6 +348,19 @@ class MusicXMLReader:
                     except (ValueError, KeyError):
                         times = 2
                     bar.end_repeat = times
+
+    def parse_ending(self, el, bar):
+        ending_type = el.attrib.get('type', None)
+        if ending_type == 'start':
+            if 'number' in el.attrib:
+                numbers = [int(n) for n in re.split(r'[\s,]+', el.attrib['number']) if n.strip().isdigit()]
+                if numbers:
+                    bar.start_ending = Ending(
+                        ENDING_TYPES_FOR_IMPORT[ending_type],
+                        numbers
+                    )
+        elif ending_type in {'stop', 'discontinue'}:
+            bar.stop_ending = Ending(ENDING_TYPES_FOR_IMPORT[ending_type])
 
     def parse_forward_backup(self, el):
         duration_el = el.find('duration')

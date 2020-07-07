@@ -45,6 +45,8 @@ class Bar:
         self.keysig = keysig # In concert pitch.
         self.start_repeat = False
         self.end_repeat = 0
+        self.start_ending = None # Ending object.
+        self.stop_ending = None # Ending object.
         self.bar_parts = {} # Maps part_ids to BarParts.
 
     def previous(self):
@@ -228,6 +230,16 @@ class OctaveShift(SequenceDirection):
         super().__init__(parent)
         self.shift_type = shift_type
         self.end_pos = end_pos
+
+class Ending:
+    # These are arbitrary codes, used only internally.
+    TYPE_START = 1
+    TYPE_STOP = 2
+    TYPE_DISCONTINUE = 3
+
+    def __init__(self, ending_type, numbers=None):
+        self.ending_type = ending_type
+        self.numbers = numbers
 
 class EventItem:
     pass

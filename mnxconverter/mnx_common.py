@@ -23,6 +23,11 @@ OCTAVE_SHIFT_TYPES_FOR_EXPORT = {
     OctaveShift.TYPE_22MA: '-22',
     OctaveShift.TYPE_22MB: '22',
 }
+ENDING_TYPES_FOR_EXPORT = {
+    Ending.TYPE_START: 'start',
+    Ending.TYPE_STOP: 'stop',
+    Ending.TYPE_DISCONTINUE: 'discontinue',
+}
 SLUR_INCOMPLETE_LOCATIONS_FOR_EXPORT = {
     Slur.INCOMPLETE_TYPE_INCOMING: 'incoming',
     Slur.INCOMPLETE_TYPE_OUTGOING: 'outgoing',
@@ -79,6 +84,19 @@ class MNXCommonWriter:
                 'type': 'start',
             })
             direction_els.append(repeat_el)
+        if bar.start_ending:
+            ending = bar.start_ending
+            ending_el = quick_element(None, 'ending', attrs={
+                'type': ENDING_TYPES_FOR_EXPORT[ending.ending_type],
+                'number': ','.join(str(n) for n in ending.numbers),
+            })
+            direction_els.append(ending_el)
+        if bar.stop_ending:
+            ending = bar.stop_ending
+            ending_el = quick_element(None, 'ending', attrs={
+                'type': ENDING_TYPES_FOR_EXPORT[ending.ending_type],
+            })
+            direction_els.append(ending_el)
         if bar.end_repeat:
             repeat_el = quick_element(None, 'repeat', attrs={
                 'type': 'end',
