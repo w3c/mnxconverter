@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mnx>
+  <score>
+    <mnx-common profile="standard">
+      <global>
+        <measure>
+          <directions>
+            <time signature="4/4"/>
+          </directions>
+        </measure>
+      </global>
+      <part>
+        <part-name>Music</part-name>
+        <measure>
+          <directions>
+            <clef sign="G" line="2"/>
+          </directions>
+          <sequence>
+            <tuplet inner="3/8" outer="2/8">
+              <event value="/8">
+                <rest/>
+              </event>
+              <beamed>
+                <event value="/8">
+                  <note pitch="C5"/>
+                </event>
+                <event value="/8">
+                  <note pitch="E5"/>
+                </event>
+              </beamed>
+            </tuplet>
+            <event value="/4">
+              <rest/>
+            </event>
+            <event value="/2">
+              <rest/>
+            </event>
+          </sequence>
+        </measure>
+      </part>
+    </mnx-common>
+  </score>
+</mnx>
+

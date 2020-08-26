@@ -277,17 +277,17 @@ class MusicXMLReader:
                 self.add_slur(*obj)
             self.complete_slurs.clear()
 
-        # Handle the beams. For each beam, we replace the Events
-        # in the Sequence with a single Beam.
-        for sequence, event_list in self.current_beams.values():
-            sequence.set_beamed(event_list)
-        self.current_beams.clear()
-
         # Handle the tuplets. For each tuplet, we replace the Events
         # in the Sequence with a single Tuplet.
         for sequence, event_list, ratio in self.current_tuplets:
             sequence.set_tuplet(ratio, event_list)
         self.current_tuplets.clear()
+
+        # Handle the beams. For each beam, we replace the Events
+        # in the Sequence with a single Beam.
+        for sequence, event_list in self.current_beams.values():
+            sequence.set_beamed(event_list)
+        self.current_beams.clear()
 
         # Handle the octave shifts.
         for shift_type, note_list in self.complete_octave_shifts:
