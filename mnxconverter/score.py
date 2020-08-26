@@ -104,6 +104,9 @@ class SequenceItem:
     def __init__(self, parent):
         self.parent = parent # SequenceContent.
 
+    def __repr__(self):
+        return f'<{self.__class__.__name__}>'
+
     def insert_before(self, other_sequence_item):
         parent_items = self.parent.items
         idx = parent_items.index(self)
