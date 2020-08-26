@@ -26,8 +26,8 @@
                 <note pitch="G4"/>
               </event>
             </tuplet>
-            <tuplet inner="3/8" outer="2/8">
-              <beamed>
+            <beamed>
+              <tuplet inner="3/8" outer="2/8">
                 <event value="/8">
                   <note pitch="E4"/>
                 </event>
@@ -37,8 +37,8 @@
                 <event value="/8">
                   <note pitch="G4"/>
                 </event>
-              </beamed>
-            </tuplet>
+              </tuplet>
+            </beamed>
             <event value="/4">
               <note pitch="E5"/>
             </event>

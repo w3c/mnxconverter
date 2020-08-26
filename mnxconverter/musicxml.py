@@ -277,16 +277,54 @@ class MusicXMLReader:
                 self.add_slur(*obj)
             self.complete_slurs.clear()
 
-        # Handle the tuplets. For each tuplet, we replace the Events
-        # in the Sequence with a single Tuplet.
-        for sequence, event_list, ratio in self.current_tuplets:
-            sequence.set_tuplet(ratio, event_list)
-        self.current_tuplets.clear()
+        # Handle the tuplets and beams. This is a bit tricky
+        # because we need to determine whether to nest tuplets
+        # within beams or vice versa.
+        foldable_items = []
+        foldable_items.extend(x[:] + [Tuplet] for x in self.current_tuplets)
+        foldable_items.extend(x[:] + [None, Beam] for x in self.current_beams.values())
+        to_fold = [] # Keep track of which items need to be folded, in which order.
+        while foldable_items:
+            num_folded = 0
+            for i, item in enumerate(foldable_items):
+                safe_to_fold = True
+                try:
+                    item_start_idx = item[0].items.index(item[1][0])
+                    item_end_idx = item[0].items.index(item[1][-1])
+                except ValueError:
+                    continue
+                for other_item in foldable_items:
+                    if other_item == item:
+                        continue
+                    try:
+                        other_item_start_idx = other_item[0].items.index(other_item[1][0])
+                        other_item_end_idx = other_item[0].items.index(other_item[1][-1])
+                    except ValueError:
+                        continue
+                    # If other_item intersects this item and is not
+                    # an exact intersection, then it's not safe to fold.
+                    # We need to fold other_item first.
+                    if item_start_idx <= other_item_start_idx <= item_end_idx and item_start_idx <= other_item_end_idx <= item_end_idx and not (item_start_idx == other_item_start_idx and item_end_idx == other_item_end_idx):
+                        safe_to_fold = False
+                        break
+                if safe_to_fold:
+                    to_fold.append(item)
+                    num_folded += 1
+                    del foldable_items[i]
+                    break
+            if num_folded == 0:
+                # Safeguard to avoid infinite loop in case we
+                # reach a state where foldable_items is nonempty
+                # but none of the items can be folded.
+                break
 
-        # Handle the beams. For each beam, we replace the Events
-        # in the Sequence with a single Beam.
-        for sequence, event_list in self.current_beams.values():
-            sequence.set_beamed(event_list)
+        for sequence, event_list, extra_data, klass in to_fold:
+            if klass == Tuplet:
+                sequence.set_tuplet(extra_data, event_list)
+            elif klass == Beam:
+                sequence.set_beamed(event_list)
+
+        self.current_tuplets.clear()
         self.current_beams.clear()
 
         # Handle the octave shifts.

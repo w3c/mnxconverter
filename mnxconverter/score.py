@@ -130,15 +130,20 @@ class SequenceContent:
                 for event in item.iter_events():
                     yield event
 
+    def find_item_idx_by_event(self, target):
+        for i, item in enumerate(self.items):
+            if isinstance(item, Event):
+                if item == target:
+                    return i
+            else:
+                for event in item.iter_events():
+                    if event == target:
+                        return i
+        return None
+
     def fold_items(self, item_list, klass, **kwargs):
-        try:
-            start_idx = self.items.index(item_list[0])
-        except ValueError:
-            start_idx = None
-        try:
-            end_idx = self.items.index(item_list[-1])
-        except ValueError:
-            end_idx = None
+        start_idx = self.find_item_idx_by_event(item_list[0])
+        end_idx = self.find_item_idx_by_event(item_list[-1])
         if start_idx is not None and end_idx is not None:
             folded_items = self.items[start_idx:end_idx+1]
             del self.items[start_idx:end_idx+1]
@@ -147,11 +152,6 @@ class SequenceContent:
                 item.parent = new_parent
             self.items.insert(start_idx, new_parent)
             return True
-        elif start_idx is None and end_idx is None:
-            for item in self.items:
-                if hasattr(item, 'fold_items'):
-                    if item.fold_items(item_list, klass, **kwargs):
-                        return True
         else:
             raise NotImplementedError("Beams intersecting tuplets aren't yet supported.")
         return False
