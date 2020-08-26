@@ -57,6 +57,7 @@ ENDING_TYPES_FOR_IMPORT = {
     'discontinue': Ending.TYPE_DISCONTINUE,
 }
 DEFAULT_KEYSIG = 0
+DIVISION_DURATION_WHOLE_NOTE = 4 # MusicXML constant specifying how many <divisions> are in a whole note.
 
 class NotationImportError(Exception):
     "Represents an import error before we know a file is MusicXML."
@@ -265,7 +266,7 @@ class MusicXMLReader:
             elif tag == 'forward':
                 position += self.parse_forward_backup(el)
             elif tag == 'note':
-                self.parse_note(el, bar_part)
+                self.parse_note(el, part, bar_part)
         bar.bar_parts[part.part_id] = bar_part
 
         # Handle the slurs. For each completed slur, we find the
@@ -435,7 +436,7 @@ class MusicXMLReader:
                 raise NotationDataError('Invalid <time> element.')
         return [numerator, denominator]
 
-    def parse_note(self, note_el, bar_part):
+    def parse_note(self, note_el, part, bar_part):
         sequence_id = ''
         is_chord = False
         is_rest = False
@@ -477,6 +478,18 @@ class MusicXMLReader:
                 note_type = self.parse_type(el)
             elif tag == 'voice':
                 sequence_id = el.text or ''
+
+        # If <type> wasn't provided, we fall back to <duration>
+        # to calculate the fractional value. This is likely a rest.
+        if note_type is None:
+            try:
+                note_type = Fraction(
+                    duration,
+                    self.part_divisions[part.part_id] * DIVISION_DURATION_WHOLE_NOTE
+                )
+                num_dots = 0
+            except Exception:
+                raise NotationDataError('Got <note> without valid <type> or <duration>')
 
         rhythmic_duration = RhythmicDuration(note_type, num_dots)
         sequence = bar_part.get_or_create_sequence(sequence_id)
