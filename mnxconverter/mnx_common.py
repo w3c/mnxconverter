@@ -48,7 +48,7 @@ class MNXCommonWriter:
             etree.XMLParser(strip_cdata=False, remove_blank_text=True)
         )
         score_el = quick_element(xml, 'score')
-        self.mnx_common_el = quick_element(score_el, 'mnx-common', attrs={'profile': 'standard'})
+        self.mnx_common_el = quick_element(score_el, 'mnx-common')
         self.xml = xml
 
     def get_filedata(self) -> bytes:
