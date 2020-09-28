@@ -17,28 +17,26 @@
             <clef sign="G" line="2"/>
           </directions>
           <sequence>
-            <beamed>
-              <event value="/8">
-                <note pitch="C5"/>
+            <event value="/8">
+              <note pitch="C5"/>
+            </event>
+            <tuplet inner="3/16" outer="2/16">
+              <event value="/16">
+                <note pitch="D5"/>
               </event>
-              <tuplet inner="3/16" outer="2/16">
-                <event value="/16">
-                  <note pitch="D5"/>
-                </event>
-                <event value="/16">
-                  <note pitch="E5"/>
-                </event>
-                <event value="/16">
-                  <note pitch="D5"/>
-                </event>
-              </tuplet>
-              <event value="/8">
-                <note pitch="C5"/>
-              </event>
-              <event value="/8">
+              <event value="/16">
                 <note pitch="E5"/>
               </event>
-            </beamed>
+              <event value="/16">
+                <note pitch="D5"/>
+              </event>
+            </tuplet>
+            <event value="/8">
+              <note pitch="C5"/>
+            </event>
+            <event value="/8">
+              <note pitch="E5"/>
+            </event>
             <event value="/2">
               <rest/>
             </event>

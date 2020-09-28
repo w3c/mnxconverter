@@ -21,14 +21,12 @@
               <event value="/8">
                 <rest/>
               </event>
-              <beamed>
-                <event value="/8">
-                  <note pitch="C5"/>
-                </event>
-                <event value="/8">
-                  <note pitch="E5"/>
-                </event>
-              </beamed>
+              <event value="/8">
+                <note pitch="C5"/>
+              </event>
+              <event value="/8">
+                <note pitch="E5"/>
+              </event>
             </tuplet>
             <event value="/4">
               <rest/>

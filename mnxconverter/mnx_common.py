@@ -148,8 +148,6 @@ class MNXCommonWriter:
         for item in items:
             if isinstance(item, Event):
                 self.write_event(parent_el, item)
-            elif isinstance(item, Beam):
-                self.write_beam(parent_el, item)
             elif isinstance(item, Tuplet):
                 self.write_tuplet(parent_el, item)
             elif isinstance(item, SequenceDirection):
@@ -204,10 +202,6 @@ class MNXCommonWriter:
         if note.tie_end_note:
             quick_element(note_el, 'tied', attrs={'target': note.tie_end_note})
         parent_el.append(note_el)
-
-    def write_beam(self, parent_el, beam):
-        beamed_el = quick_element(parent_el, 'beamed')
-        self.write_sequence_items(beamed_el, beam.items)
 
     def write_tuplet(self, parent_el, tuplet):
         tuplet_el = quick_element(parent_el, 'tuplet', attrs={

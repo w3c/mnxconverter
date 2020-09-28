@@ -59,20 +59,18 @@
             <event value="/2">
               <rest/>
             </event>
-            <beamed>
-              <event value="/8">
-                <note pitch="C5"/>
-              </event>
-              <event value="/8">
-                <note pitch="D5"/>
-              </event>
-              <event value="/8">
-                <note pitch="E5"/>
-              </event>
-              <event value="/8">
-                <note pitch="D5"/>
-              </event>
-            </beamed>
+            <event value="/8">
+              <note pitch="C5"/>
+            </event>
+            <event value="/8">
+              <note pitch="D5"/>
+            </event>
+            <event value="/8">
+              <note pitch="E5"/>
+            </event>
+            <event value="/8">
+              <note pitch="D5"/>
+            </event>
           </sequence>
         </measure>
         <measure>

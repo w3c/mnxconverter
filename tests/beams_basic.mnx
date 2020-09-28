@@ -18,63 +18,55 @@
             <clef sign="G" line="2"/>
           </directions>
           <sequence>
-            <beamed>
-              <event value="/8">
-                <note pitch="C5"/>
-              </event>
-              <event value="/8">
-                <note pitch="D5"/>
-              </event>
-              <event value="/8">
-                <note pitch="E5"/>
-              </event>
-              <event value="/8">
-                <note pitch="F5"/>
-              </event>
-            </beamed>
-            <beamed>
-              <event value="/8">
-                <note pitch="D4"/>
-              </event>
-              <event value="/8">
-                <note pitch="E4"/>
-              </event>
-              <event value="/8">
-                <note pitch="F4"/>
-              </event>
-              <event value="/8">
-                <note pitch="G4"/>
-              </event>
-            </beamed>
+            <event value="/8">
+              <note pitch="C5"/>
+            </event>
+            <event value="/8">
+              <note pitch="D5"/>
+            </event>
+            <event value="/8">
+              <note pitch="E5"/>
+            </event>
+            <event value="/8">
+              <note pitch="F5"/>
+            </event>
+            <event value="/8">
+              <note pitch="D4"/>
+            </event>
+            <event value="/8">
+              <note pitch="E4"/>
+            </event>
+            <event value="/8">
+              <note pitch="F4"/>
+            </event>
+            <event value="/8">
+              <note pitch="G4"/>
+            </event>
           </sequence>
         </measure>
         <measure>
           <sequence>
-            <beamed>
-              <event value="/8">
-                <note pitch="G4"/>
-              </event>
-              <event value="/8">
-                <rest/>
-              </event>
-              <event value="/16">
-                <note pitch="D4"/>
-              </event>
-              <event value="/16">
-                <note pitch="E4"/>
-              </event>
-              <event value="/8">
-                <note pitch="G4"/>
-              </event>
-            </beamed>
-            <beamed>
-              <event value="/8">
-                <note pitch="E4"/>
-              </event>
-              <event value="/8">
-                <note pitch="D4"/>
-              </event>
-            </beamed>
+            <event value="/8">
+              <note pitch="G4"/>
+            </event>
+            <event value="/8">
+              <rest/>
+            </event>
+            <event value="/16">
+              <note pitch="D4"/>
+            </event>
+            <event value="/16">
+              <note pitch="E4"/>
+            </event>
+            <event value="/8">
+              <note pitch="G4"/>
+            </event>
+            <event value="/8">
+              <note pitch="E4"/>
+            </event>
+            <event value="/8">
+              <note pitch="D4"/>
+            </event>
             <event value="/4">
               <note pitch="C4"/>
             </event>
@@ -84,3 +76,4 @@
     </mnx-common>
   </score>
 </mnx>
+

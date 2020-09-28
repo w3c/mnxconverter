@@ -17,39 +17,33 @@
             <clef sign="G" line="2"/>
           </directions>
           <sequence>
-            <beamed>
-              <event value="/16">
-                <note pitch="C5"/>
-              </event>
-              <event value="/8">
-                <note pitch="D5"/>
-              </event>
-              <event value="/16">
-                <note pitch="C5"/>
-              </event>
-            </beamed>
-            <beamed>
-              <event value="/16">
-                <note pitch="E5"/>
-              </event>
-              <event value="/8">
-                <note pitch="F5"/>
-              </event>
-              <event value="/16">
-                <note pitch="E5"/>
-              </event>
-            </beamed>
-            <beamed>
-              <event value="/16">
-                <note pitch="G5"/>
-              </event>
-              <event value="/8">
-                <note pitch="A5"/>
-              </event>
-              <event value="/16">
-                <note pitch="G5"/>
-              </event>
-            </beamed>
+            <event value="/16">
+              <note pitch="C5"/>
+            </event>
+            <event value="/8">
+              <note pitch="D5"/>
+            </event>
+            <event value="/16">
+              <note pitch="C5"/>
+            </event>
+            <event value="/16">
+              <note pitch="E5"/>
+            </event>
+            <event value="/8">
+              <note pitch="F5"/>
+            </event>
+            <event value="/16">
+              <note pitch="E5"/>
+            </event>
+            <event value="/16">
+              <note pitch="G5"/>
+            </event>
+            <event value="/8">
+              <note pitch="A5"/>
+            </event>
+            <event value="/16">
+              <note pitch="G5"/>
+            </event>
             <event value="/4">
               <note pitch="C6"/>
             </event>
@@ -59,3 +53,4 @@
     </mnx-common>
   </score>
 </mnx>
+

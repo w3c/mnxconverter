@@ -96,7 +96,6 @@ class BarPart:
 class SequenceItem:
     """
     An object that can be in a SequenceContent. Examples:
-        * Beam
         * Tuplet
         * SequenceDirection
         * Event
@@ -116,7 +115,6 @@ class SequenceContent:
     """
     An object that can contain SequenceItems. Examples:
         * Sequence
-        * Beam
         * Tuplet
     """
     def __init__(self, items):
@@ -153,16 +151,8 @@ class SequenceContent:
             self.items.insert(start_idx, new_parent)
             return True
         else:
-            raise NotImplementedError("Beams intersecting tuplets aren't yet supported.")
+            raise NotImplementedError("Could not fold items.")
         return False
-
-    def set_beamed(self, item_list):
-        """
-        For the given list of SequenceItem objects, which
-        are assumed to be in this SequenceContent already,
-        folds them into a single Beam.
-        """
-        self.fold_items(item_list, Beam)
 
     def set_tuplet(self, ratio, item_list):
         """
@@ -182,11 +172,6 @@ class Sequence(SequenceContent):
             if isinstance(obj, Event):
                 return obj
         return None
-
-class Beam(SequenceItem, SequenceContent):
-    def __init__(self, parent, items):
-        SequenceItem.__init__(self, parent)
-        SequenceContent.__init__(self, items)
 
 class Tuplet(SequenceItem, SequenceContent):
     def __init__(self, parent, items, ratio):
