@@ -1,75 +1,71 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <mnx>
-  <score>
-    <mnx-common>
-      <global>
-        <measure>
-          <directions>
-            <time signature="4/4"/>
-            <key fifths="4"/>
-          </directions>
-        </measure>
-        <measure/>
-        <measure>
-          <directions>
-            <key fifths="-4"/>
-          </directions>
-        </measure>
-        <measure/>
-      </global>
-      <part>
-        <part-name>Music</part-name>
-        <measure>
-          <directions>
-            <clef sign="G" line="2"/>
-          </directions>
-          <sequence>
-            <event value="/4">
-              <note pitch="E5"/>
-            </event>
-            <event value="/4">
-              <note pitch="F#5"/>
-            </event>
-            <event value="/4">
-              <note pitch="G#5"/>
-            </event>
-            <event value="/4">
-              <note pitch="E5"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/1">
-              <note pitch="G#5"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/4">
-              <note pitch="Ab4"/>
-            </event>
-            <event value="/4">
-              <note pitch="Bb4"/>
-            </event>
-            <event value="/4">
-              <note pitch="C5"/>
-            </event>
-            <event value="/4">
-              <note pitch="Ab4"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/1">
-              <note pitch="C5"/>
-            </event>
-          </sequence>
-        </measure>
-      </part>
-    </mnx-common>
-  </score>
+  <global>
+    <measure>
+      <directions>
+        <time signature="4/4"/>
+        <key fifths="4"/>
+      </directions>
+    </measure>
+    <measure/>
+    <measure>
+      <directions>
+        <key fifths="-4"/>
+      </directions>
+    </measure>
+    <measure/>
+  </global>
+  <part>
+    <part-name>Music</part-name>
+    <measure>
+      <directions>
+        <clef sign="G" line="2"/>
+      </directions>
+      <sequence>
+        <event value="/4">
+          <note pitch="E5"/>
+        </event>
+        <event value="/4">
+          <note pitch="F#5"/>
+        </event>
+        <event value="/4">
+          <note pitch="G#5"/>
+        </event>
+        <event value="/4">
+          <note pitch="E5"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/1">
+          <note pitch="G#5"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/4">
+          <note pitch="Ab4"/>
+        </event>
+        <event value="/4">
+          <note pitch="Bb4"/>
+        </event>
+        <event value="/4">
+          <note pitch="C5"/>
+        </event>
+        <event value="/4">
+          <note pitch="Ab4"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/1">
+          <note pitch="C5"/>
+        </event>
+      </sequence>
+    </measure>
+  </part>
 </mnx>

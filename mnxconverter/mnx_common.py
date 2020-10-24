@@ -47,8 +47,6 @@ class MNXCommonWriter:
         xml = etree.XML('<mnx/>',
             etree.XMLParser(strip_cdata=False, remove_blank_text=True)
         )
-        score_el = quick_element(xml, 'score')
-        self.mnx_common_el = quick_element(score_el, 'mnx-common')
         self.xml = xml
 
     def get_filedata(self) -> bytes:
@@ -62,7 +60,7 @@ class MNXCommonWriter:
         )
 
     def write_global(self):
-        global_el = quick_element(self.mnx_common_el, 'global')
+        global_el = quick_element(self.xml, 'global')
         for bar in self.score.bars:
             global_el.append(self.get_measure_header(bar))
 
@@ -115,7 +113,7 @@ class MNXCommonWriter:
             self.write_part(part)
 
     def write_part(self, part):
-        part_el = quick_element(self.mnx_common_el, 'part')
+        part_el = quick_element(self.xml, 'part')
         if part.name is not None:
             quick_element(part_el, 'part-name', part.name)
         for bar in self.score.bars:

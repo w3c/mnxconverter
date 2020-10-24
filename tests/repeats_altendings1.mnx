@@ -1,71 +1,67 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <mnx>
-  <score>
-    <mnx-common>
-      <global>
-        <measure>
-          <directions>
-            <time signature="4/4"/>
-            <repeat type="start"/>
-          </directions>
-        </measure>
-        <measure>
-          <directions>
-            <ending type="start" number="1"/>
-            <ending type="stop"/>
-            <repeat type="end"/>
-          </directions>
-        </measure>
-        <measure>
-          <directions>
-            <ending type="start" number="2"/>
-            <ending type="stop"/>
-            <repeat type="end"/>
-          </directions>
-        </measure>
-        <measure>
-          <directions>
-            <ending type="start" number="3"/>
-            <ending type="discontinue"/>
-          </directions>
-        </measure>
-      </global>
-      <part>
-        <part-name>Music</part-name>
-        <measure>
-          <directions>
-            <clef sign="G" line="2"/>
-          </directions>
-          <sequence>
-            <event value="/1">
-              <note pitch="C5"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/1">
-              <note pitch="E5"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/1">
-              <note pitch="G4"/>
-            </event>
-          </sequence>
-        </measure>
-        <measure>
-          <sequence>
-            <event value="/1">
-              <note pitch="C5"/>
-            </event>
-          </sequence>
-        </measure>
-      </part>
-    </mnx-common>
-  </score>
+  <global>
+    <measure>
+      <directions>
+        <time signature="4/4"/>
+        <repeat type="start"/>
+      </directions>
+    </measure>
+    <measure>
+      <directions>
+        <ending type="start" number="1"/>
+        <ending type="stop"/>
+        <repeat type="end"/>
+      </directions>
+    </measure>
+    <measure>
+      <directions>
+        <ending type="start" number="2"/>
+        <ending type="stop"/>
+        <repeat type="end"/>
+      </directions>
+    </measure>
+    <measure>
+      <directions>
+        <ending type="start" number="3"/>
+        <ending type="discontinue"/>
+      </directions>
+    </measure>
+  </global>
+  <part>
+    <part-name>Music</part-name>
+    <measure>
+      <directions>
+        <clef sign="G" line="2"/>
+      </directions>
+      <sequence>
+        <event value="/1">
+          <note pitch="C5"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/1">
+          <note pitch="E5"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/1">
+          <note pitch="G4"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <event value="/1">
+          <note pitch="C5"/>
+        </event>
+      </sequence>
+    </measure>
+  </part>
 </mnx>
 

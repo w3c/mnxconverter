@@ -1,56 +1,52 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <mnx>
-  <score>
-    <mnx-common>
-      <global>
-        <measure>
-          <directions>
-            <time signature="4/4"/>
-          </directions>
-        </measure>
-      </global>
-      <part>
-        <part-name>Music</part-name>
-        <measure>
-          <directions>
-            <clef sign="G" line="2"/>
-          </directions>
-          <sequence>
-            <event value="/16">
-              <note pitch="C5"/>
-            </event>
-            <event value="/8">
-              <note pitch="D5"/>
-            </event>
-            <event value="/16">
-              <note pitch="C5"/>
-            </event>
-            <event value="/16">
-              <note pitch="E5"/>
-            </event>
-            <event value="/8">
-              <note pitch="F5"/>
-            </event>
-            <event value="/16">
-              <note pitch="E5"/>
-            </event>
-            <event value="/16">
-              <note pitch="G5"/>
-            </event>
-            <event value="/8">
-              <note pitch="A5"/>
-            </event>
-            <event value="/16">
-              <note pitch="G5"/>
-            </event>
-            <event value="/4">
-              <note pitch="C6"/>
-            </event>
-          </sequence>
-        </measure>
-      </part>
-    </mnx-common>
-  </score>
+  <global>
+    <measure>
+      <directions>
+        <time signature="4/4"/>
+      </directions>
+    </measure>
+  </global>
+  <part>
+    <part-name>Music</part-name>
+    <measure>
+      <directions>
+        <clef sign="G" line="2"/>
+      </directions>
+      <sequence>
+        <event value="/16">
+          <note pitch="C5"/>
+        </event>
+        <event value="/8">
+          <note pitch="D5"/>
+        </event>
+        <event value="/16">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16">
+          <note pitch="E5"/>
+        </event>
+        <event value="/8">
+          <note pitch="F5"/>
+        </event>
+        <event value="/16">
+          <note pitch="E5"/>
+        </event>
+        <event value="/16">
+          <note pitch="G5"/>
+        </event>
+        <event value="/8">
+          <note pitch="A5"/>
+        </event>
+        <event value="/16">
+          <note pitch="G5"/>
+        </event>
+        <event value="/4">
+          <note pitch="C6"/>
+        </event>
+      </sequence>
+    </measure>
+  </part>
 </mnx>
 
