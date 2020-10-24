@@ -1,7 +1,7 @@
 from lxml import etree
 from mnxconverter.score import *
 
-MNX_COMMON_DOCTYPE = ''
+MNX_DOCTYPE = ''
 ACCIDENTAL_TYPES_FOR_EXPORT = {
     Note.ACCIDENTAL_SHARP: 'sharp',
     Note.ACCIDENTAL_NATURAL: 'natural',
@@ -34,12 +34,12 @@ SLUR_INCOMPLETE_LOCATIONS_FOR_EXPORT = {
 }
 
 def put_score(score) -> bytes:
-    writer = MNXCommonWriter(score)
+    writer = MNXWriter(score)
     return writer.get_filedata()
 
-class MNXCommonWriter:
+class MNXWriter:
     """
-    Helper class that tracks state during a single MNX-Common writing.
+    Helper class that tracks state during a single MNX writing.
     Not meant to be used to write multiple files.
     """
     def __init__(self, score):
@@ -56,7 +56,7 @@ class MNXCommonWriter:
             pretty_print=True,
             encoding='UTF-8',
             xml_declaration=True,
-            doctype=MNX_COMMON_DOCTYPE,
+            doctype=MNX_DOCTYPE,
         )
 
     def write_global(self):

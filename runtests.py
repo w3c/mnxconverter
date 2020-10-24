@@ -1,5 +1,5 @@
 from mnxconverter.musicxml import get_score as get_score_from_musicxml
-from mnxconverter.mnx_common import put_score as put_mnx_common_score
+from mnxconverter.mnx import put_score as put_mnx_score
 import os
 import unittest
 
@@ -31,7 +31,7 @@ class TestMetaclass(type):
 class FileformatTests(unittest.TestCase, metaclass=TestMetaclass):
     def autotest(self, input_markup: bytes, expected_output: bytes):
         score = get_score_from_musicxml(input_markup)
-        self.assertEqual(put_mnx_common_score(score).strip(), expected_output.strip())
+        self.assertEqual(put_mnx_score(score).strip(), expected_output.strip())
 
 if __name__ == "__main__":
     unittest.main()
