@@ -15,31 +15,36 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
-        <event value="/16">
+        <beams>
+          <beam events="event1 event2 event3"/>
+          <beam events="event4 event5 event6"/>
+          <beam events="event7 event8 event9"/>
+        </beams>
+        <event value="/16" id="event1">
           <note pitch="C5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event2">
           <note pitch="D5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event3">
           <note pitch="C5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event4">
           <note pitch="E5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event5">
           <note pitch="F5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event6">
           <note pitch="E5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event7">
           <note pitch="G5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event8">
           <note pitch="A5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event9">
           <note pitch="G5"/>
         </event>
         <event value="/4">

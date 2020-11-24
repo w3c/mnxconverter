@@ -203,7 +203,7 @@ class MusicXMLReader:
         self.score = Score()
         self.part_divisions = {} # Maps part ID to current <divisions> value.
         self.open_ties = []
-        self.current_beams = {} # Maps beam ID to (sequence, event_list).
+        self.current_beams = {} # Maps beam ID to (sequence, Beam).
         self.open_tuplets = {} # Maps MusicXML tuplet number to event_list.
         self.current_tuplets = [] # List of [sequence, event_list, ratio] lists.
         self.open_slurs = {} # Maps MusicXML slur number to [Slur, slur_start_attrs, slur_end_attrs, first_note, last_note].
@@ -281,6 +281,12 @@ class MusicXMLReader:
         for sequence, event_list, ratio in self.current_tuplets:
             sequence.set_tuplet(ratio, event_list)
         self.current_tuplets.clear()
+
+        # Handle the beams.
+        # TODO: This approach doesn't handle cross-measure beams.
+        for beam_id, (sequence, beam) in self.current_beams.items():
+            sequence.beams.append(beam)
+        self.current_beams.clear()
 
         # Handle the octave shifts.
         for shift_type, note_list in self.complete_octave_shifts:
@@ -518,6 +524,8 @@ class MusicXMLReader:
             for number in closed_tuplet_numbers:
                 complete_tuplet = self.open_tuplets.pop(number)
                 self.current_tuplets.append([sequence, complete_tuplet, time_mod])
+        if beam_id:
+            self.add_event_to_beam(beam_id, sequence, event)
         if self.current_octave_shift:
             self.current_octave_shift[1].append(event_item)
 
@@ -701,6 +709,12 @@ class MusicXMLReader:
                 end_note.is_referenced = True
 
         start_event.slurs.append(slur)
+
+    def add_event_to_beam(self, beam_id, sequence, event):
+        if beam_id not in self.current_beams:
+            self.current_beams[beam_id] = [sequence, Beam([])]
+        event.is_referenced = True
+        self.current_beams[beam_id][1].events.append(event)
 
     def add_octave_shift(self, shift_type, note_list):
         # note_list is assumed to be in order.

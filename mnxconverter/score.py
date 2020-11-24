@@ -163,9 +163,10 @@ class SequenceContent:
         self.fold_items(item_list, Tuplet, ratio=ratio)
 
 class Sequence(SequenceContent):
-    def __init__(self, items, sequence_id):
+    def __init__(self, items, sequence_id, beams=None):
         super().__init__(items)
         self.sequence_id = sequence_id # Unique within the BarPart. Can be empty string.
+        self.beams = beams or []
 
     def get_last_event(self):
         for obj in reversed(self.items):
@@ -197,6 +198,10 @@ class Event(SequenceItem):
 
 class Direction(SequenceItem):
     pass
+
+class Beam:
+    def __init__(self, events):
+        self.events = events
 
 class ClefDirection(Direction):
     def __init__(self, clef):

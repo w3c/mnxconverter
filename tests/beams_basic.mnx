@@ -16,53 +16,61 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
-        <event value="/8">
+        <beams>
+          <beam events="event1 event2 event3 event4"/>
+          <beam events="event5 event6 event7 event8"/>
+        </beams>
+        <event value="/8" id="event1">
           <note pitch="C5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event2">
           <note pitch="D5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event3">
           <note pitch="E5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event4">
           <note pitch="F5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event5">
           <note pitch="D4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event6">
           <note pitch="E4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event7">
           <note pitch="F4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event8">
           <note pitch="G4"/>
         </event>
       </sequence>
     </measure>
     <measure>
       <sequence>
-        <event value="/8">
+        <beams>
+          <beam events="event9 event10 event11 event12 event13"/>
+          <beam events="event14 event15"/>
+        </beams>
+        <event value="/8" id="event9">
           <note pitch="G4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event10">
           <rest/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event11">
           <note pitch="D4"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="event12">
           <note pitch="E4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event13">
           <note pitch="G4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event14">
           <note pitch="E4"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event15">
           <note pitch="D4"/>
         </event>
         <event value="/4">

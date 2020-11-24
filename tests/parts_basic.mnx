@@ -54,19 +54,22 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
+        <beams>
+          <beam events="event6 event7 event8 event9"/>
+        </beams>
         <event value="/2">
           <rest/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event6">
           <note pitch="C5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event7">
           <note pitch="D5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event8">
           <note pitch="E5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="event9">
           <note pitch="D5"/>
         </event>
       </sequence>

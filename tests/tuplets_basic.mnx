@@ -16,6 +16,9 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
+        <beams>
+          <beam events="event3 event4 event5"/>
+        </beams>
         <tuplet inner="3/8" outer="2/8">
           <event value="/4">
             <note pitch="C5"/>
@@ -25,13 +28,13 @@
           </event>
         </tuplet>
         <tuplet inner="3/8" outer="2/8">
-          <event value="/8">
+          <event value="/8" id="event3">
             <note pitch="E4"/>
           </event>
-          <event value="/8">
+          <event value="/8" id="event4">
             <note pitch="F4"/>
           </event>
-          <event value="/8">
+          <event value="/8" id="event5">
             <note pitch="G4"/>
           </event>
         </tuplet>
