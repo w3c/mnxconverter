@@ -193,7 +193,7 @@ class Event(SequenceItem):
         self.duration = duration # RhythmicDuration
         self.event_items = [] # EventItem objects.
         self.slurs = [] # Slur objects.
-        self.is_referenced = False # True if this Note's note_id is referenced by another object in the Score.
+        self.is_referenced = False # True if this Event's event_id is referenced by another object in the Score.
 
 class Direction(SequenceItem):
     pass
