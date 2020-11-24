@@ -690,7 +690,7 @@ class MusicXMLReader:
         else:
             slur.is_incomplete = False
             slur.end_event_id = end_event.event_id
-            end_event.slur_ends.append(start_event.event_id)
+            end_event.is_referenced = True
 
             # Check for slurs that are attached to specific notes,
             # as opposed to slurs that are attached to events.

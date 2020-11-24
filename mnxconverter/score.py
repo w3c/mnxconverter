@@ -193,7 +193,7 @@ class Event(SequenceItem):
         self.duration = duration # RhythmicDuration
         self.event_items = [] # EventItem objects.
         self.slurs = [] # Slur objects.
-        self.slur_ends = [] # IDs of Events that start slur(s) that end on this Event.
+        self.is_referenced = False # True if this Note's note_id is referenced by another object in the Score.
 
 class Direction(SequenceItem):
     pass

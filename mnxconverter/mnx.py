@@ -154,7 +154,7 @@ class MNXWriter:
     def write_event(self, parent_el, event):
         event_el = etree.Element('event')
         event_el.attrib['value'] = microformat_duration(event.duration)
-        if event.slur_ends:
+        if event.is_referenced:
             event_el.attrib['id'] = event.event_id
         for item in event.event_items:
             if isinstance(item, Note):
