@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mnx>
+  <global>
+    <measure>
+      <directions>
+        <time signature="4/4"/>
+      </directions>
+    </measure>
+  </global>
+  <part>
+    <part-name>Music</part-name>
+    <measure>
+      <directions>
+        <clef sign="G" line="2"/>
+      </directions>
+      <sequence>
+        <beams>
+          <beam events="event1 event3 event4 event5"/>
+        </beams>
+        <event value="/8" id="event1">
+          <note pitch="C5"/>
+        </event>
+        <event value="/8">
+          <note pitch="B4"/>
+        </event>
+        <event value="/8" id="event3">
+          <note pitch="D5"/>
+        </event>
+        <event value="/8" id="event4">
+          <note pitch="E5"/>
+        </event>
+        <event value="/8" id="event5">
+          <note pitch="F5"/>
+        </event>
+        <event value="/2">
+          <rest/>
+        </event>
+      </sequence>
+    </measure>
+  </part>
+</mnx>
+
