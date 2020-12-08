@@ -203,14 +203,13 @@ class MusicXMLReader:
         self.score = Score()
         self.part_divisions = {} # Maps part ID to current <divisions> value.
         self.open_ties = []
-        self.current_beams = {} # Maps beam ID to (sequence, Beam).
+        self.current_beams = [] # List of (Sequence, Event, beam_data)
         self.open_tuplets = {} # Maps MusicXML tuplet number to event_list.
         self.current_tuplets = [] # List of [sequence, event_list, ratio] lists.
         self.open_slurs = {} # Maps MusicXML slur number to [Slur, slur_start_attrs, slur_end_attrs, first_note, last_note].
         self.complete_slurs = [] # List of lists in the same format as self.open_slurs.
         self.next_event_id = 1
         self.next_note_id = 1
-        self.current_beam_id = 0
         self.current_octave_shift = None # [shift_type, note_list].
         self.complete_octave_shifts = []
 
@@ -283,10 +282,7 @@ class MusicXMLReader:
         self.current_tuplets.clear()
 
         # Handle the beams.
-        # TODO: This approach doesn't handle cross-measure beams.
-        for beam_id, (sequence, beam) in self.current_beams.items():
-            sequence.beams.append(beam)
-        self.current_beams.clear()
+        self.process_beams()
 
         # Handle the octave shifts.
         for shift_type, note_list in self.complete_octave_shifts:
@@ -442,7 +438,7 @@ class MusicXMLReader:
         duration = None
         note_type = None
         num_dots = 0
-        beam_id = None
+        beams = []
         closed_tuplet_numbers = []
         time_mod = None
         note = Note(self.score, f'note{self.next_note_id}')
@@ -454,9 +450,7 @@ class MusicXMLReader:
                 except KeyError:
                     raise NotationDataError(f'Got unsupported <{tag}> value {el.text}.')
             elif tag == 'beam':
-                new_beam_id = self.parse_beam(el)
-                if new_beam_id:
-                    beam_id = new_beam_id
+                beams.append(self.parse_beam(el))
             elif tag == 'chord':
                 is_chord = True
             elif tag == 'dot':
@@ -524,30 +518,17 @@ class MusicXMLReader:
             for number in closed_tuplet_numbers:
                 complete_tuplet = self.open_tuplets.pop(number)
                 self.current_tuplets.append([sequence, complete_tuplet, time_mod])
-        if beam_id:
-            self.add_event_to_beam(beam_id, sequence, event)
+        if beams:
+            self.current_beams.append((sequence, event, beams))
         if self.current_octave_shift:
             self.current_octave_shift[1].append(event_item)
 
     def parse_beam(self, beam_el):
-        """
-        Parses <beam>. Returns an internal beam ID or None.
-        """
-        result = None
-        number = beam_el.attrib.get('number', '1')
-        # We only care about number="1", as opposed to
-        # secondary beams.
-        if number == '1' and beam_el.text:
-            beam_type = beam_el.text
-            if beam_type == 'begin':
-                self.current_beam_id += 1
-                result = self.current_beam_id
-            elif beam_type == 'continue':
-                result = self.current_beam_id
-            elif beam_type == 'end':
-                result = self.current_beam_id
-                self.current_beam_id += 1
-        return result
+        try:
+            number = int(beam_el.attrib.get('number', 1))
+        except ValueError:
+            raise NotationDataError('Got invalid <beam> number attribute.')
+        return (number, beam_el.text)
 
     def parse_notations(self, notations_el, note):
         closed_tuplet_numbers = []
@@ -710,11 +691,42 @@ class MusicXMLReader:
 
         start_event.slurs.append(slur)
 
-    def add_event_to_beam(self, beam_id, sequence, event):
-        if beam_id not in self.current_beams:
-            self.current_beams[beam_id] = [sequence, Beam([])]
-        event.is_referenced = True
-        self.current_beams[beam_id][1].events.append(event)
+    def process_beams(self):
+        # TODO: This approach doesn't handle cross-measure beams.
+        open_beams = {}
+        for sequence, event, beam_data in self.current_beams:
+            event.is_referenced = True
+            beam_data.sort() # Make sure beam numbers are in ascending order.
+            for beam_number, beam_type in beam_data:
+                if beam_type == 'begin':
+                    beam = Beam()
+                    beam.events.append(event)
+                    open_beams[beam_number] = beam
+                    if beam_number == 1:
+                        sequence.beams.append(beam)
+                    else:
+                        try:
+                            parent_beam = open_beams[beam_number - 1]
+                        except KeyError:
+                            raise NotationDataError(f'Got <beam number="{beam_number}"> outside of <beam number="{beam_number-1}">')
+                        else:
+                            parent_beam.child_beams.append(beam)
+                elif beam_type == 'continue':
+                    try:
+                        beam = open_beams[beam_number]
+                    except KeyError:
+                        pass # TODO: Error message.
+                    else:
+                        beam.events.append(event)
+                elif beam_type == 'end':
+                    try:
+                        beam = open_beams[beam_number]
+                    except KeyError:
+                        pass # TODO: Error message.
+                    else:
+                        beam.events.append(event)
+                        open_beams.pop(beam_number)
+        self.current_beams = []
 
     def add_octave_shift(self, shift_type, note_list):
         # note_list is assumed to be in order.

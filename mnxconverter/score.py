@@ -200,8 +200,9 @@ class Direction(SequenceItem):
     pass
 
 class Beam:
-    def __init__(self, events):
-        self.events = events
+    def __init__(self):
+        self.events = []
+        self.child_beams = []
 
 class ClefDirection(Direction):
     def __init__(self, clef):

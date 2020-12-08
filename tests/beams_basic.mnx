@@ -49,7 +49,9 @@
     <measure>
       <sequence>
         <beams>
-          <beam events="event9 event10 event11 event12 event13"/>
+          <beam events="event9 event10 event11 event12 event13">
+            <beam events="event11 event12"/>
+          </beam>
           <beam events="event14 event15"/>
         </beams>
         <event value="/8" id="event9">

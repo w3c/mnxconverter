@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mnx>
+  <global>
+    <measure>
+      <directions>
+        <time signature="4/4"/>
+      </directions>
+    </measure>
+    <measure/>
+  </global>
+  <part>
+    <part-name>Music</part-name>
+    <measure>
+      <directions>
+        <clef sign="G" line="2"/>
+      </directions>
+      <sequence>
+        <beams>
+          <beam events="event1 event2 event3 event4 event5 event6 event7 event8">
+            <beam events="event1 event2 event3 event4 event5 event6 event7 event8"/>
+          </beam>
+          <beam events="event9 event10 event11 event12">
+            <beam events="event9 event10 event11 event12"/>
+          </beam>
+          <beam events="event13 event14 event15 event16">
+            <beam events="event13 event14"/>
+            <beam events="event15 event16"/>
+          </beam>
+        </beams>
+        <event value="/16" id="event1">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="event2">
+          <note pitch="D5"/>
+        </event>
+        <event value="/16" id="event3">
+          <note pitch="E5"/>
+        </event>
+        <event value="/16" id="event4">
+          <note pitch="F5"/>
+        </event>
+        <event value="/16" id="event5">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="event6">
+          <note pitch="D5"/>
+        </event>
+        <event value="/16" id="event7">
+          <note pitch="E5"/>
+        </event>
+        <event value="/16" id="event8">
+          <note pitch="F5"/>
+        </event>
+        <event value="/16" id="event9">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="event10">
+          <note pitch="D5"/>
+        </event>
+        <event value="/16" id="event11">
+          <note pitch="E5"/>
+        </event>
+        <event value="/16" id="event12">
+          <note pitch="F5"/>
+        </event>
+        <event value="/16" id="event13">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="event14">
+          <note pitch="D5"/>
+        </event>
+        <event value="/16" id="event15">
+          <note pitch="E5"/>
+        </event>
+        <event value="/16" id="event16">
+          <note pitch="F5"/>
+        </event>
+      </sequence>
+    </measure>
+    <measure>
+      <sequence>
+        <beams>
+          <beam events="event17 event18 event19 event20 event21 event22 event23 event24">
+            <beam events="event17 event18 event19 event20">
+              <beam events="event17 event18 event19 event20"/>
+            </beam>
+            <beam events="event21 event22 event23 event24">
+              <beam events="event21 event22 event23 event24"/>
+            </beam>
+          </beam>
+          <beam events="event25 event26 event27 event28 event29 event30 event31 event32">
+            <beam events="event25 event26 event27 event28">
+              <beam events="event25 event26"/>
+              <beam events="event27 event28"/>
+            </beam>
+            <beam events="event29 event30 event31 event32">
+              <beam events="event29 event30"/>
+              <beam events="event31 event32"/>
+            </beam>
+          </beam>
+        </beams>
+        <event value="/32" id="event17">
+          <note pitch="C5"/>
+        </event>
+        <event value="/32" id="event18">
+          <note pitch="D5"/>
+        </event>
+        <event value="/32" id="event19">
+          <note pitch="E5"/>
+        </event>
+        <event value="/32" id="event20">
+          <note pitch="F5"/>
+        </event>
+        <event value="/32" id="event21">
+          <note pitch="C5"/>
+        </event>
+        <event value="/32" id="event22">
+          <note pitch="D5"/>
+        </event>
+        <event value="/32" id="event23">
+          <note pitch="E5"/>
+        </event>
+        <event value="/32" id="event24">
+          <note pitch="F5"/>
+        </event>
+        <event value="/32" id="event25">
+          <note pitch="C5"/>
+        </event>
+        <event value="/32" id="event26">
+          <note pitch="D5"/>
+        </event>
+        <event value="/32" id="event27">
+          <note pitch="E5"/>
+        </event>
+        <event value="/32" id="event28">
+          <note pitch="F5"/>
+        </event>
+        <event value="/32" id="event29">
+          <note pitch="C5"/>
+        </event>
+        <event value="/32" id="event30">
+          <note pitch="D5"/>
+        </event>
+        <event value="/32" id="event31">
+          <note pitch="E5"/>
+        </event>
+        <event value="/32" id="event32">
+          <note pitch="F5"/>
+        </event>
+        <event value="/2">
+          <rest/>
+        </event>
+      </sequence>
+    </measure>
+  </part>
+</mnx>
+

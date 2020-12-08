@@ -16,7 +16,9 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event2 event3 event4 event5 event6"/>
+          <beam events="event1 event2 event3 event4 event5 event6">
+            <beam events="event1 event2 event3 event4 event5 event6"/>
+          </beam>
         </beams>
         <tuplet inner="3/16" outer="2/16">
           <event value="/16" id="event1">
