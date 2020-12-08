@@ -18,7 +18,7 @@
         <event value="/4">
           <note pitch="C5"/>
           <note pitch="E5"/>
-          <slur target="event4" side="up"/>
+          <slur target="ev4" side="up"/>
         </event>
         <event value="/4">
           <note pitch="D5"/>
@@ -28,7 +28,7 @@
           <note pitch="E5"/>
           <note pitch="G5"/>
         </event>
-        <event value="/4" id="event4">
+        <event value="/4" id="ev4">
           <note pitch="F5"/>
           <note pitch="A5"/>
         </event>
@@ -36,3 +36,4 @@
     </measure>
   </part>
 </mnx>
+

@@ -19,11 +19,11 @@
           <note pitch="C5" id="note1"/>
           <note pitch="E5" id="note2"/>
           <note pitch="G5" id="note3"/>
-          <slur target="event2" start-note="note1" end-note="note4" side="down"/>
-          <slur target="event2" start-note="note2" end-note="note5" side="up"/>
-          <slur target="event2" start-note="note3" end-note="note6" side="up"/>
+          <slur target="ev2" start-note="note1" end-note="note4" side="down"/>
+          <slur target="ev2" start-note="note2" end-note="note5" side="up"/>
+          <slur target="ev2" start-note="note3" end-note="note6" side="up"/>
         </event>
-        <event value="/2" id="event2">
+        <event value="/2" id="ev2">
           <note pitch="B4" id="note4"/>
           <note pitch="D5" id="note5"/>
           <note pitch="F5" id="note6"/>
@@ -32,3 +32,4 @@
     </measure>
   </part>
 </mnx>
+

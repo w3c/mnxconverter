@@ -18,7 +18,7 @@
       <sequence>
         <event value="/4">
           <note pitch="C5"/>
-          <slur target="event4" side="up"/>
+          <slur target="ev4" side="up"/>
         </event>
         <event value="/4">
           <note pitch="D5"/>
@@ -26,7 +26,7 @@
         <event value="/4">
           <note pitch="E5"/>
         </event>
-        <event value="/4" id="event4">
+        <event value="/4" id="ev4">
           <note pitch="C5"/>
         </event>
       </sequence>
@@ -35,7 +35,7 @@
       <sequence>
         <event value="/4">
           <note pitch="G4"/>
-          <slur target="event8" side="down"/>
+          <slur target="ev8" side="down"/>
         </event>
         <event value="/4">
           <note pitch="A4"/>
@@ -43,10 +43,11 @@
         <event value="/4">
           <note pitch="G4"/>
         </event>
-        <event value="/4" id="event8">
+        <event value="/4" id="ev8">
           <note pitch="E4"/>
         </event>
       </sequence>
     </measure>
   </part>
 </mnx>
+
