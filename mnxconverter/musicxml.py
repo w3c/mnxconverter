@@ -204,6 +204,7 @@ class MusicXMLReader:
         self.part_divisions = {} # Maps part ID to current <divisions> value.
         self.open_ties = []
         self.current_beams = [] # List of (Sequence, Event, beam_data)
+        self.open_beams = {} # Maps part ID to {beam_number: Beam} dictionaries.
         self.open_tuplets = {} # Maps MusicXML tuplet number to event_list.
         self.current_tuplets = [] # List of [sequence, event_list, ratio] lists.
         self.open_slurs = {} # Maps MusicXML slur number to [Slur, slur_start_attrs, slur_end_attrs, first_note, last_note].
@@ -282,7 +283,7 @@ class MusicXMLReader:
         self.current_tuplets.clear()
 
         # Handle the beams.
-        self.process_beams()
+        self.process_beams(part.part_id)
 
         # Handle the octave shifts.
         for shift_type, note_list in self.complete_octave_shifts:
@@ -691,9 +692,10 @@ class MusicXMLReader:
 
         start_event.slurs.append(slur)
 
-    def process_beams(self):
-        # TODO: This approach doesn't handle cross-measure beams.
-        open_beams = {}
+    def process_beams(self, part_id):
+        if part_id not in self.open_beams:
+            self.open_beams[part_id] = {}
+        part_open_beams = self.open_beams[part_id]
         pending_ends = []
         for sequence, event, beam_data in self.current_beams:
             event.is_referenced = True
@@ -702,37 +704,37 @@ class MusicXMLReader:
                 if beam_type == 'begin':
                     beam = Beam()
                     beam.events.append(event)
-                    open_beams[beam_number] = beam
+                    part_open_beams[beam_number] = beam
                     if beam_number == 1:
                         sequence.beams.append(beam)
                     else:
                         try:
-                            parent_beam = open_beams[beam_number - 1]
+                            parent_beam = part_open_beams[beam_number - 1]
                         except KeyError:
                             raise NotationDataError(f'Got <beam number="{beam_number}"> outside of <beam number="{beam_number-1}">')
                         else:
                             parent_beam.children.append(beam)
                 elif beam_type == 'continue':
                     try:
-                        beam = open_beams[beam_number]
+                        beam = part_open_beams[beam_number]
                     except KeyError:
                         pass # TODO: Error message.
                     else:
                         beam.events.append(event)
                 elif beam_type == 'end':
                     try:
-                        beam = open_beams[beam_number]
+                        beam = part_open_beams[beam_number]
                     except KeyError:
                         pass # TODO: Error message.
                     else:
                         beam.events.append(event)
-                        # Can't remove from open_beams yet, because
+                        # Can't remove from part_open_beams yet, because
                         # there might be a secondary beam that relies
                         # on this.
                         pending_ends.append(beam_number)
                 elif beam_type == 'forward hook' or beam_type == 'backward hook':
                     try:
-                        parent_beam = open_beams[beam_number - 1]
+                        parent_beam = part_open_beams[beam_number - 1]
                     except KeyError:
                         raise NotationDataError(f'Got <beam number="{beam_number}"> outside of <beam number="{beam_number-1}">')
                     else:
@@ -741,7 +743,7 @@ class MusicXMLReader:
                         )
             if pending_ends:
                 for beam_number in pending_ends:
-                    open_beams.pop(beam_number)
+                    part_open_beams.pop(beam_number)
                 pending_ends = []
         self.current_beams = []
 
