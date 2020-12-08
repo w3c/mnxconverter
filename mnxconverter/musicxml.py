@@ -495,11 +495,11 @@ class MusicXMLReader:
                 # TODO: Got a <note> with <chord> without a previous
                 # <note> in the voice. Show an error? For now, we
                 # effectively ignore the <chord> in this situation.
-                event = Event(sequence, f'event{self.next_event_id}', rhythmic_duration)
+                event = Event(sequence, f'ev{self.next_event_id}', rhythmic_duration)
                 self.next_event_id += 1
                 sequence.items.append(event)
         else:
-            event = Event(sequence, f'event{self.next_event_id}', rhythmic_duration)
+            event = Event(sequence, f'ev{self.next_event_id}', rhythmic_duration)
             self.next_event_id += 1
             sequence.items.append(event)
 
