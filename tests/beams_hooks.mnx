@@ -16,9 +16,17 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event2 event3"/>
-          <beam events="event4 event5 event6"/>
-          <beam events="event7 event8 event9"/>
+          <beam events="event1 event2 event3">
+            <beam-hook event="event1" direction="right"/>
+            <beam-hook event="event3" direction="left"/>
+          </beam>
+          <beam events="event4 event5 event6 event7 event8 event9">
+            <beam events="event4 event5 event6 event7">
+              <beam-hook event="event4" direction="right"/>
+              <beam-hook event="event6" direction="right"/>
+            </beam>
+            <beam-hook event="event9" direction="left"/>
+          </beam>
         </beams>
         <event value="/16" id="event1">
           <note pitch="C5"/>
@@ -29,26 +37,29 @@
         <event value="/16" id="event3">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event4">
-          <note pitch="E5"/>
+        <event value="/32" id="event4">
+          <note pitch="C5"/>
         </event>
-        <event value="/8" id="event5">
-          <note pitch="F5"/>
+        <event value="/16" id="event5">
+          <note pitch="D5"/>
         </event>
-        <event value="/16" id="event6">
-          <note pitch="E5"/>
+        <event value="/32" id="event6">
+          <note pitch="C5"/>
         </event>
         <event value="/16" id="event7">
-          <note pitch="G5"/>
+          <note pitch="D5"/>
         </event>
         <event value="/8" id="event8">
-          <note pitch="A5"/>
+          <note pitch="C5"/>
         </event>
         <event value="/16" id="event9">
-          <note pitch="G5"/>
+          <note pitch="D5"/>
+        </event>
+        <event value="/8">
+          <rest/>
         </event>
         <event value="/4">
-          <note pitch="C6"/>
+          <rest/>
         </event>
       </sequence>
     </measure>

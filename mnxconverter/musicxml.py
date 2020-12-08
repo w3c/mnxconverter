@@ -694,6 +694,7 @@ class MusicXMLReader:
     def process_beams(self):
         # TODO: This approach doesn't handle cross-measure beams.
         open_beams = {}
+        pending_ends = []
         for sequence, event, beam_data in self.current_beams:
             event.is_referenced = True
             beam_data.sort() # Make sure beam numbers are in ascending order.
@@ -710,7 +711,7 @@ class MusicXMLReader:
                         except KeyError:
                             raise NotationDataError(f'Got <beam number="{beam_number}"> outside of <beam number="{beam_number-1}">')
                         else:
-                            parent_beam.child_beams.append(beam)
+                            parent_beam.children.append(beam)
                 elif beam_type == 'continue':
                     try:
                         beam = open_beams[beam_number]
@@ -725,7 +726,23 @@ class MusicXMLReader:
                         pass # TODO: Error message.
                     else:
                         beam.events.append(event)
-                        open_beams.pop(beam_number)
+                        # Can't remove from open_beams yet, because
+                        # there might be a secondary beam that relies
+                        # on this.
+                        pending_ends.append(beam_number)
+                elif beam_type == 'forward hook' or beam_type == 'backward hook':
+                    try:
+                        parent_beam = open_beams[beam_number - 1]
+                    except KeyError:
+                        raise NotationDataError(f'Got <beam number="{beam_number}"> outside of <beam number="{beam_number-1}">')
+                    else:
+                        parent_beam.children.append(
+                            BeamHook(event, beam_type == 'forward hook')
+                        )
+            if pending_ends:
+                for beam_number in pending_ends:
+                    open_beams.pop(beam_number)
+                pending_ends = []
         self.current_beams = []
 
     def add_octave_shift(self, shift_type, note_list):

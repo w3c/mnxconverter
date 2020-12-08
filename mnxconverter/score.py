@@ -202,7 +202,12 @@ class Direction(SequenceItem):
 class Beam:
     def __init__(self):
         self.events = []
-        self.child_beams = []
+        self.children = []
+
+class BeamHook:
+    def __init__(self, event, is_forward):
+        self.event = event
+        self.is_forward = is_forward
 
 class ClefDirection(Direction):
     def __init__(self, clef):
