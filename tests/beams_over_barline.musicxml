@@ -7,7 +7,7 @@
         </score-part>
     </part-list>
     <part id="P1">
-        <measure>
+        <measure number="1">
             <attributes>
                 <divisions>2</divisions>
                 <key>

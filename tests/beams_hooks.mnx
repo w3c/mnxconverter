@@ -16,43 +16,43 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event2 event3">
-            <beam-hook event="event1" direction="right"/>
-            <beam-hook event="event3" direction="left"/>
+          <beam events="ev1 ev2 ev3">
+            <beam-hook event="ev1" direction="right"/>
+            <beam-hook event="ev3" direction="left"/>
           </beam>
-          <beam events="event4 event5 event6 event7 event8 event9">
-            <beam events="event4 event5 event6 event7">
-              <beam-hook event="event4" direction="right"/>
-              <beam-hook event="event6" direction="right"/>
+          <beam events="ev4 ev5 ev6 ev7 ev8 ev9">
+            <beam events="ev4 ev5 ev6 ev7">
+              <beam-hook event="ev4" direction="right"/>
+              <beam-hook event="ev6" direction="right"/>
             </beam>
-            <beam-hook event="event9" direction="left"/>
+            <beam-hook event="ev9" direction="left"/>
           </beam>
         </beams>
-        <event value="/16" id="event1">
+        <event value="/16" id="ev1">
           <note pitch="C5"/>
         </event>
-        <event value="/8" id="event2">
+        <event value="/8" id="ev2">
           <note pitch="D5"/>
         </event>
-        <event value="/16" id="event3">
+        <event value="/16" id="ev3">
           <note pitch="C5"/>
         </event>
-        <event value="/32" id="event4">
+        <event value="/32" id="ev4">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event5">
+        <event value="/16" id="ev5">
           <note pitch="D5"/>
         </event>
-        <event value="/32" id="event6">
+        <event value="/32" id="ev6">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event7">
+        <event value="/16" id="ev7">
           <note pitch="D5"/>
         </event>
-        <event value="/8" id="event8">
+        <event value="/8" id="ev8">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event9">
+        <event value="/16" id="ev9">
           <note pitch="D5"/>
         </event>
         <event value="/8">

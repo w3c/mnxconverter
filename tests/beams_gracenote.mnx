@@ -16,21 +16,21 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event3 event4 event5"/>
+          <beam events="ev1 ev3 ev4 ev5"/>
         </beams>
-        <event value="/8" id="event1">
+        <event value="/8" id="ev1">
           <note pitch="C5"/>
         </event>
         <event value="/8">
           <note pitch="B4"/>
         </event>
-        <event value="/8" id="event3">
+        <event value="/8" id="ev3">
           <note pitch="D5"/>
         </event>
-        <event value="/8" id="event4">
+        <event value="/8" id="ev4">
           <note pitch="E5"/>
         </event>
-        <event value="/8" id="event5">
+        <event value="/8" id="ev5">
           <note pitch="F5"/>
         </event>
         <event value="/2">

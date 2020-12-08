@@ -16,16 +16,16 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event2 event3"/>
+          <beam events="ev2 ev3"/>
         </beams>
         <tuplet inner="3/8" outer="2/8">
           <event value="/8">
             <rest/>
           </event>
-          <event value="/8" id="event2">
+          <event value="/8" id="ev2">
             <note pitch="C5"/>
           </event>
-          <event value="/8" id="event3">
+          <event value="/8" id="ev3">
             <note pitch="E5"/>
           </event>
         </tuplet>

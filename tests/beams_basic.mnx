@@ -17,31 +17,31 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event2 event3 event4"/>
-          <beam events="event5 event6 event7 event8"/>
+          <beam events="ev1 ev2 ev3 ev4"/>
+          <beam events="ev5 ev6 ev7 ev8"/>
         </beams>
-        <event value="/8" id="event1">
+        <event value="/8" id="ev1">
           <note pitch="C5"/>
         </event>
-        <event value="/8" id="event2">
+        <event value="/8" id="ev2">
           <note pitch="D5"/>
         </event>
-        <event value="/8" id="event3">
+        <event value="/8" id="ev3">
           <note pitch="E5"/>
         </event>
-        <event value="/8" id="event4">
+        <event value="/8" id="ev4">
           <note pitch="F5"/>
         </event>
-        <event value="/8" id="event5">
+        <event value="/8" id="ev5">
           <note pitch="D4"/>
         </event>
-        <event value="/8" id="event6">
+        <event value="/8" id="ev6">
           <note pitch="E4"/>
         </event>
-        <event value="/8" id="event7">
+        <event value="/8" id="ev7">
           <note pitch="F4"/>
         </event>
-        <event value="/8" id="event8">
+        <event value="/8" id="ev8">
           <note pitch="G4"/>
         </event>
       </sequence>
@@ -49,30 +49,30 @@
     <measure>
       <sequence>
         <beams>
-          <beam events="event9 event10 event11 event12 event13">
-            <beam events="event11 event12"/>
+          <beam events="ev9 ev10 ev11 ev12 ev13">
+            <beam events="ev11 ev12"/>
           </beam>
-          <beam events="event14 event15"/>
+          <beam events="ev14 ev15"/>
         </beams>
-        <event value="/8" id="event9">
+        <event value="/8" id="ev9">
           <note pitch="G4"/>
         </event>
-        <event value="/8" id="event10">
+        <event value="/8" id="ev10">
           <rest/>
         </event>
-        <event value="/16" id="event11">
+        <event value="/16" id="ev11">
           <note pitch="D4"/>
         </event>
-        <event value="/16" id="event12">
+        <event value="/16" id="ev12">
           <note pitch="E4"/>
         </event>
-        <event value="/8" id="event13">
+        <event value="/8" id="ev13">
           <note pitch="G4"/>
         </event>
-        <event value="/8" id="event14">
+        <event value="/8" id="ev14">
           <note pitch="E4"/>
         </event>
-        <event value="/8" id="event15">
+        <event value="/8" id="ev15">
           <note pitch="D4"/>
         </event>
         <event value="/4">

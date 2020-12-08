@@ -17,63 +17,63 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event1 event2 event3 event4 event5 event6 event7 event8">
-            <beam events="event1 event2 event3 event4 event5 event6 event7 event8"/>
+          <beam events="ev1 ev2 ev3 ev4 ev5 ev6 ev7 ev8">
+            <beam events="ev1 ev2 ev3 ev4 ev5 ev6 ev7 ev8"/>
           </beam>
-          <beam events="event9 event10 event11 event12">
-            <beam events="event9 event10 event11 event12"/>
+          <beam events="ev9 ev10 ev11 ev12">
+            <beam events="ev9 ev10 ev11 ev12"/>
           </beam>
-          <beam events="event13 event14 event15 event16">
-            <beam events="event13 event14"/>
-            <beam events="event15 event16"/>
+          <beam events="ev13 ev14 ev15 ev16">
+            <beam events="ev13 ev14"/>
+            <beam events="ev15 ev16"/>
           </beam>
         </beams>
-        <event value="/16" id="event1">
+        <event value="/16" id="ev1">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event2">
+        <event value="/16" id="ev2">
           <note pitch="D5"/>
         </event>
-        <event value="/16" id="event3">
+        <event value="/16" id="ev3">
           <note pitch="E5"/>
         </event>
-        <event value="/16" id="event4">
+        <event value="/16" id="ev4">
           <note pitch="F5"/>
         </event>
-        <event value="/16" id="event5">
+        <event value="/16" id="ev5">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event6">
+        <event value="/16" id="ev6">
           <note pitch="D5"/>
         </event>
-        <event value="/16" id="event7">
+        <event value="/16" id="ev7">
           <note pitch="E5"/>
         </event>
-        <event value="/16" id="event8">
+        <event value="/16" id="ev8">
           <note pitch="F5"/>
         </event>
-        <event value="/16" id="event9">
+        <event value="/16" id="ev9">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event10">
+        <event value="/16" id="ev10">
           <note pitch="D5"/>
         </event>
-        <event value="/16" id="event11">
+        <event value="/16" id="ev11">
           <note pitch="E5"/>
         </event>
-        <event value="/16" id="event12">
+        <event value="/16" id="ev12">
           <note pitch="F5"/>
         </event>
-        <event value="/16" id="event13">
+        <event value="/16" id="ev13">
           <note pitch="C5"/>
         </event>
-        <event value="/16" id="event14">
+        <event value="/16" id="ev14">
           <note pitch="D5"/>
         </event>
-        <event value="/16" id="event15">
+        <event value="/16" id="ev15">
           <note pitch="E5"/>
         </event>
-        <event value="/16" id="event16">
+        <event value="/16" id="ev16">
           <note pitch="F5"/>
         </event>
       </sequence>
@@ -81,71 +81,71 @@
     <measure>
       <sequence>
         <beams>
-          <beam events="event17 event18 event19 event20 event21 event22 event23 event24">
-            <beam events="event17 event18 event19 event20">
-              <beam events="event17 event18 event19 event20"/>
+          <beam events="ev17 ev18 ev19 ev20 ev21 ev22 ev23 ev24">
+            <beam events="ev17 ev18 ev19 ev20">
+              <beam events="ev17 ev18 ev19 ev20"/>
             </beam>
-            <beam events="event21 event22 event23 event24">
-              <beam events="event21 event22 event23 event24"/>
+            <beam events="ev21 ev22 ev23 ev24">
+              <beam events="ev21 ev22 ev23 ev24"/>
             </beam>
           </beam>
-          <beam events="event25 event26 event27 event28 event29 event30 event31 event32">
-            <beam events="event25 event26 event27 event28">
-              <beam events="event25 event26"/>
-              <beam events="event27 event28"/>
+          <beam events="ev25 ev26 ev27 ev28 ev29 ev30 ev31 ev32">
+            <beam events="ev25 ev26 ev27 ev28">
+              <beam events="ev25 ev26"/>
+              <beam events="ev27 ev28"/>
             </beam>
-            <beam events="event29 event30 event31 event32">
-              <beam events="event29 event30"/>
-              <beam events="event31 event32"/>
+            <beam events="ev29 ev30 ev31 ev32">
+              <beam events="ev29 ev30"/>
+              <beam events="ev31 ev32"/>
             </beam>
           </beam>
         </beams>
-        <event value="/32" id="event17">
+        <event value="/32" id="ev17">
           <note pitch="C5"/>
         </event>
-        <event value="/32" id="event18">
+        <event value="/32" id="ev18">
           <note pitch="D5"/>
         </event>
-        <event value="/32" id="event19">
+        <event value="/32" id="ev19">
           <note pitch="E5"/>
         </event>
-        <event value="/32" id="event20">
+        <event value="/32" id="ev20">
           <note pitch="F5"/>
         </event>
-        <event value="/32" id="event21">
+        <event value="/32" id="ev21">
           <note pitch="C5"/>
         </event>
-        <event value="/32" id="event22">
+        <event value="/32" id="ev22">
           <note pitch="D5"/>
         </event>
-        <event value="/32" id="event23">
+        <event value="/32" id="ev23">
           <note pitch="E5"/>
         </event>
-        <event value="/32" id="event24">
+        <event value="/32" id="ev24">
           <note pitch="F5"/>
         </event>
-        <event value="/32" id="event25">
+        <event value="/32" id="ev25">
           <note pitch="C5"/>
         </event>
-        <event value="/32" id="event26">
+        <event value="/32" id="ev26">
           <note pitch="D5"/>
         </event>
-        <event value="/32" id="event27">
+        <event value="/32" id="ev27">
           <note pitch="E5"/>
         </event>
-        <event value="/32" id="event28">
+        <event value="/32" id="ev28">
           <note pitch="F5"/>
         </event>
-        <event value="/32" id="event29">
+        <event value="/32" id="ev29">
           <note pitch="C5"/>
         </event>
-        <event value="/32" id="event30">
+        <event value="/32" id="ev30">
           <note pitch="D5"/>
         </event>
-        <event value="/32" id="event31">
+        <event value="/32" id="ev31">
           <note pitch="E5"/>
         </event>
-        <event value="/32" id="event32">
+        <event value="/32" id="ev32">
           <note pitch="F5"/>
         </event>
         <event value="/2">

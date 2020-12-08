@@ -17,7 +17,7 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event3 event4 event5 event6"/>
+          <beam events="ev3 ev4 ev5 ev6"/>
         </beams>
         <event value="/2">
           <rest/>
@@ -25,20 +25,20 @@
         <event value="/4">
           <rest/>
         </event>
-        <event value="/8" id="event3">
+        <event value="/8" id="ev3">
           <note pitch="C5"/>
         </event>
-        <event value="/8" id="event4">
+        <event value="/8" id="ev4">
           <note pitch="D5"/>
         </event>
       </sequence>
     </measure>
     <measure>
       <sequence>
-        <event value="/8" id="event5">
+        <event value="/8" id="ev5">
           <note pitch="E5"/>
         </event>
-        <event value="/8" id="event6">
+        <event value="/8" id="ev6">
           <note pitch="F5"/>
         </event>
         <event value="/4">

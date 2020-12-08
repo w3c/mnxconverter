@@ -55,21 +55,21 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="event6 event7 event8 event9"/>
+          <beam events="ev6 ev7 ev8 ev9"/>
         </beams>
         <event value="/2">
           <rest/>
         </event>
-        <event value="/8" id="event6">
+        <event value="/8" id="ev6">
           <note pitch="C5"/>
         </event>
-        <event value="/8" id="event7">
+        <event value="/8" id="ev7">
           <note pitch="D5"/>
         </event>
-        <event value="/8" id="event8">
+        <event value="/8" id="ev8">
           <note pitch="E5"/>
         </event>
-        <event value="/8" id="event9">
+        <event value="/8" id="ev9">
           <note pitch="D5"/>
         </event>
       </sequence>
