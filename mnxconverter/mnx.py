@@ -140,7 +140,24 @@ class MNXWriter:
 
     def write_sequence(self, measure_el, sequence):
         sequence_el = quick_element(measure_el, 'sequence')
+        if sequence.beams:
+            beams_el = quick_element(sequence_el, 'beams')
+            self.write_beam(beams_el, sequence.beams)
         self.write_sequence_items(sequence_el, sequence.items)
+
+    def write_beam(self, parent_el, beam_list):
+        for obj in beam_list:
+            if isinstance(obj, Beam):
+                beam_el = quick_element(parent_el, 'beam', attrs={
+                    'events': ' '.join(e.event_id for e in obj.events),
+                })
+                if obj.children:
+                    self.write_beam(beam_el, obj.children)
+            elif isinstance(obj, BeamHook):
+                quick_element(parent_el, 'beam-hook', attrs={
+                    'event': obj.event.event_id,
+                    'direction': 'right' if obj.is_forward else 'left',
+                })
 
     def write_sequence_items(self, parent_el, items):
         for item in items:

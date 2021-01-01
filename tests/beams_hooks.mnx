@@ -15,35 +15,51 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
-        <event value="/16">
+        <beams>
+          <beam events="ev1 ev2 ev3">
+            <beam-hook event="ev1" direction="right"/>
+            <beam-hook event="ev3" direction="left"/>
+          </beam>
+          <beam events="ev4 ev5 ev6 ev7 ev8 ev9">
+            <beam events="ev4 ev5 ev6 ev7">
+              <beam-hook event="ev4" direction="right"/>
+              <beam-hook event="ev6" direction="right"/>
+            </beam>
+            <beam-hook event="ev9" direction="left"/>
+          </beam>
+        </beams>
+        <event value="/16" id="ev1">
           <note pitch="C5"/>
         </event>
-        <event value="/8">
+        <event value="/8" id="ev2">
           <note pitch="D5"/>
         </event>
-        <event value="/16">
+        <event value="/16" id="ev3">
           <note pitch="C5"/>
         </event>
-        <event value="/16">
-          <note pitch="E5"/>
+        <event value="/32" id="ev4">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="ev5">
+          <note pitch="D5"/>
+        </event>
+        <event value="/32" id="ev6">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="ev7">
+          <note pitch="D5"/>
+        </event>
+        <event value="/8" id="ev8">
+          <note pitch="C5"/>
+        </event>
+        <event value="/16" id="ev9">
+          <note pitch="D5"/>
         </event>
         <event value="/8">
-          <note pitch="F5"/>
-        </event>
-        <event value="/16">
-          <note pitch="E5"/>
-        </event>
-        <event value="/16">
-          <note pitch="G5"/>
-        </event>
-        <event value="/8">
-          <note pitch="A5"/>
-        </event>
-        <event value="/16">
-          <note pitch="G5"/>
+          <rest/>
         </event>
         <event value="/4">
-          <note pitch="C6"/>
+          <rest/>
         </event>
       </sequence>
     </measure>

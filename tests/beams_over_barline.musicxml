@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE score-partwise PUBLIC '-//Recordare//DTD MusicXML 3.1 Partwise//EN' 'http://www.musicxml.org/dtds/partwise.dtd'>
-
 <score-partwise version="3.1">
     <part-list>
         <score-part id="P1">
@@ -10,7 +9,7 @@
     <part id="P1">
         <measure number="1">
             <attributes>
-                <divisions>1</divisions>
+                <divisions>2</divisions>
                 <key>
                     <fifths>0</fifths>
                 </key>
@@ -24,31 +23,14 @@
                 </clef>
             </attributes>
             <note>
-                <pitch>
-                    <step>C</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>1</duration>
-                <type>quarter</type>
-                <stem>up</stem>
+                <rest/>
+                <duration>4</duration>
+                <type>half</type>
             </note>
             <note>
-                <pitch>
-                    <step>E</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>1</duration>
+                <rest/>
+                <duration>2</duration>
                 <type>quarter</type>
-                <stem>up</stem>
-            </note>
-            <note>
-                <pitch>
-                    <step>G</step>
-                    <octave>4</octave>
-                </pitch>
-                <duration>1</duration>
-                <type>quarter</type>
-                <stem>up</stem>
             </note>
             <note>
                 <pitch>
@@ -56,14 +38,51 @@
                     <octave>5</octave>
                 </pitch>
                 <duration>1</duration>
-                <type>quarter</type>
+                <type>eighth</type>
                 <stem>down</stem>
+                <beam number="1">begin</beam>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>eighth</type>
+                <stem>down</stem>
+                <beam number="1">continue</beam>
             </note>
         </measure>
         <measure number="2">
             <note>
+                <pitch>
+                    <step>E</step>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>eighth</type>
+                <stem>down</stem>
+                <beam number="1">continue</beam>
+            </note>
+            <note>
+                <pitch>
+                    <step>F</step>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>eighth</type>
+                <stem>down</stem>
+                <beam number="1">end</beam>
+            </note>
+            <note>
+                <rest/>
+                <duration>2</duration>
+                <type>quarter</type>
+            </note>
+            <note>
                 <rest/>
                 <duration>4</duration>
+                <type>half</type>
             </note>
             <barline location="right">
                 <bar-style>light-heavy</bar-style>

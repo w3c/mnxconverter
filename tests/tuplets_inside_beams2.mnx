@@ -15,25 +15,30 @@
         <clef sign="G" line="2"/>
       </directions>
       <sequence>
+        <beams>
+          <beam events="ev1 ev2 ev3 ev4 ev5 ev6">
+            <beam events="ev1 ev2 ev3 ev4 ev5 ev6"/>
+          </beam>
+        </beams>
         <tuplet inner="3/16" outer="2/16">
-          <event value="/16">
+          <event value="/16" id="ev1">
             <note pitch="C5"/>
           </event>
-          <event value="/16">
+          <event value="/16" id="ev2">
             <note pitch="D5"/>
           </event>
-          <event value="/16">
+          <event value="/16" id="ev3">
             <note pitch="C5"/>
           </event>
         </tuplet>
         <tuplet inner="3/16" outer="2/16">
-          <event value="/16">
+          <event value="/16" id="ev4">
             <note pitch="E5"/>
           </event>
-          <event value="/16">
+          <event value="/16" id="ev5">
             <note pitch="F5"/>
           </event>
-          <event value="/16">
+          <event value="/16" id="ev6">
             <note pitch="E5"/>
           </event>
         </tuplet>

@@ -26,7 +26,6 @@
             <note>
                 <rest/>
                 <duration>1</duration>
-                <voice>1</voice>
                 <type>eighth</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
@@ -42,7 +41,6 @@
                     <octave>5</octave>
                 </pitch>
                 <duration>1</duration>
-                <voice>1</voice>
                 <type>eighth</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
@@ -57,7 +55,6 @@
                     <octave>5</octave>
                 </pitch>
                 <duration>1</duration>
-                <voice>1</voice>
                 <type>eighth</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
@@ -72,13 +69,11 @@
             <note>
                 <rest/>
                 <duration>3</duration>
-                <voice>1</voice>
                 <type>quarter</type>
             </note>
             <note>
                 <rest/>
                 <duration>6</duration>
-                <voice>1</voice>
                 <type>half</type>
             </note>
             <barline location="right">

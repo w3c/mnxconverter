@@ -16,21 +16,22 @@
       </directions>
       <sequence>
         <beams>
-          <beam events="ev2 ev3"/>
+          <beam events="ev1 ev3 ev4 ev5"/>
         </beams>
-        <tuplet inner="3/8" outer="2/8">
-          <event value="/8">
-            <rest/>
-          </event>
-          <event value="/8" id="ev2">
-            <note pitch="C5"/>
-          </event>
-          <event value="/8" id="ev3">
-            <note pitch="E5"/>
-          </event>
-        </tuplet>
-        <event value="/4">
-          <rest/>
+        <event value="/8" id="ev1">
+          <note pitch="C5"/>
+        </event>
+        <event value="/8">
+          <note pitch="B4"/>
+        </event>
+        <event value="/8" id="ev3">
+          <note pitch="D5"/>
+        </event>
+        <event value="/8" id="ev4">
+          <note pitch="E5"/>
+        </event>
+        <event value="/8" id="ev5">
+          <note pitch="F5"/>
         </event>
         <event value="/2">
           <rest/>
