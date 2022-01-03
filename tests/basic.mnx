@@ -2,18 +2,18 @@
 
 <mnx>
   <global>
-    <measure>
-      <directions>
+    <measure-global>
+      <directions-global>
         <time signature="4/4"/>
-      </directions>
-    </measure>
+      </directions-global>
+    </measure-global>
   </global>
   <part>
     <part-name>Music</part-name>
     <measure>
-      <directions>
+      <directions-part>
         <clef sign="G" line="2"/>
-      </directions>
+      </directions-part>
       <sequence>
         <event value="/1">
           <note pitch="C4"/>
@@ -22,3 +22,4 @@
     </measure>
   </part>
 </mnx>
+

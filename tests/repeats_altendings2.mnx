@@ -2,41 +2,41 @@
 
 <mnx>
   <global>
-    <measure>
-      <directions>
+    <measure-global>
+      <directions-global>
         <time signature="3/4"/>
         <repeat type="start"/>
-      </directions>
-    </measure>
-    <measure>
-      <directions>
+      </directions-global>
+    </measure-global>
+    <measure-global>
+      <directions-global>
         <ending type="start" number="1,2"/>
-      </directions>
-    </measure>
-    <measure>
-      <directions>
+      </directions-global>
+    </measure-global>
+    <measure-global>
+      <directions-global>
         <ending type="stop"/>
         <repeat type="end"/>
-      </directions>
-    </measure>
-    <measure>
-      <directions>
+      </directions-global>
+    </measure-global>
+    <measure-global>
+      <directions-global>
         <ending type="start" number="3"/>
-      </directions>
-    </measure>
-    <measure>
-      <directions>
+      </directions-global>
+    </measure-global>
+    <measure-global>
+      <directions-global>
         <ending type="discontinue"/>
-      </directions>
-    </measure>
-    <measure/>
+      </directions-global>
+    </measure-global>
+    <measure-global/>
   </global>
   <part>
     <part-name>Music</part-name>
     <measure>
-      <directions>
+      <directions-part>
         <clef sign="G" line="2"/>
-      </directions>
+      </directions-part>
       <sequence>
         <event value="/2d">
           <note pitch="C5"/>

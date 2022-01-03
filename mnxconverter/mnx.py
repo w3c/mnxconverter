@@ -65,7 +65,7 @@ class MNXWriter:
             global_el.append(self.get_measure_header(bar))
 
     def get_measure_header(self, bar):
-        measure_el = etree.Element('measure')
+        measure_el = etree.Element('measure-global')
         direction_els = []
         if bar.timesig and bar.timesig_changed():
             time_el = quick_element(None, 'time', attrs={
@@ -103,7 +103,7 @@ class MNXWriter:
                 repeat_el.attrib['times'] = str(bar.end_repeat)
             direction_els.append(repeat_el)
         if direction_els:
-            directions_el = quick_element(measure_el, 'directions')
+            directions_el = quick_element(measure_el, 'directions-global')
             for direction_el in direction_els:
                 directions_el.append(direction_el)
         return measure_el
@@ -121,13 +121,13 @@ class MNXWriter:
 
     def write_bar_part(self, part_el, bar, bar_part):
         measure_el = quick_element(part_el, 'measure')
-        self.write_directions(measure_el, bar_part.directions)
+        self.write_directions_part(measure_el, bar_part.directions)
         for sequence in bar_part.sequences:
             self.write_sequence(measure_el, sequence)
 
-    def write_directions(self, measure_el, directions):
+    def write_directions_part(self, measure_el, directions):
         if directions:
-            directions_el = quick_element(measure_el, 'directions')
+            directions_el = quick_element(measure_el, 'directions-part')
             for direction in directions:
                 self.write_direction(directions_el, direction)
 

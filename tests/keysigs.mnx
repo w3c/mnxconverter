@@ -2,26 +2,26 @@
 
 <mnx>
   <global>
-    <measure>
-      <directions>
+    <measure-global>
+      <directions-global>
         <time signature="4/4"/>
         <key fifths="4"/>
-      </directions>
-    </measure>
-    <measure/>
-    <measure>
-      <directions>
+      </directions-global>
+    </measure-global>
+    <measure-global/>
+    <measure-global>
+      <directions-global>
         <key fifths="-4"/>
-      </directions>
-    </measure>
-    <measure/>
+      </directions-global>
+    </measure-global>
+    <measure-global/>
   </global>
   <part>
     <part-name>Music</part-name>
     <measure>
-      <directions>
+      <directions-part>
         <clef sign="G" line="2"/>
-      </directions>
+      </directions-part>
       <sequence>
         <event value="/4">
           <note pitch="E5"/>
@@ -69,3 +69,4 @@
     </measure>
   </part>
 </mnx>
+
