@@ -223,7 +223,7 @@ class MusicXMLReader:
         parts = self.score.parts
         part_list_el = self.xml.find('part-list')
         if part_list_el is not None:
-            for score_part_el in part_list_el:
+            for score_part_el in part_list_el.iterfind('score-part'):
                 part = self.parse_part(score_part_el)
                 parts.append(part)
 
