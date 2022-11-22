@@ -491,7 +491,7 @@ class MusicXMLReader:
                 if new_closed_tuplet_numbers:
                     closed_tuplet_numbers.extend(new_closed_tuplet_numbers)
             elif tag == 'pitch':
-                note.pitch = self.parse_pitch(el)
+                note.pitch = self.parse_pitch(el, part)
             elif tag == 'rest':
                 is_rest = True
             elif tag == 'time-modification':
@@ -621,7 +621,11 @@ class MusicXMLReader:
             result = number
         return result
 
-    def parse_pitch(self, pitch_el):
+    def parse_pitch(self, pitch_el, part):
+        """
+        Returns a concert pitch Pitch object, using the given part's
+        transposition.
+        """
         alter = 0
         step = None
         octave = None
@@ -643,7 +647,7 @@ class MusicXMLReader:
             raise NotationDataError('Missing <step> for <pitch>.')
         if octave is None:
             raise NotationDataError('Missing <octave> for <pitch>.')
-        return Pitch(step, octave, alter)
+        return Pitch(step, octave, alter).to_concert(part)
 
     def parse_time_modification(self, time_mod_el, note_type):
         actual_notes = None

@@ -114,6 +114,8 @@ class MNXWriter:
 
     def write_part(self, part):
         part_el = quick_element(self.xml, 'part')
+        if part.transpose:
+            part_el.attrib['transpose'] = str(part.transpose)
         if part.name is not None:
             quick_element(part_el, 'part-name', part.name)
         for bar in self.score.bars:
