@@ -1,6 +1,7 @@
 from fractions import Fraction
 
 DEFAULT_KEYSIG = 0
+NUM_PITCHES_IN_OCTAVE = 12
 
 class Score:
     def __init__(self):
@@ -288,14 +289,75 @@ class RhythmicDuration:
     def __eq__(self, other):
         return self.frac == other.frac and self.dots == other.dots
 
+STEP_INTEGER_WHITE_KEYS = {
+    0: 'C',
+    2: 'D',
+    4: 'E',
+    5: 'F',
+    7: 'G',
+    9: 'A',
+    11: 'B',
+}
+
 class Pitch:
+    # Pitch objects don't know whether they're in concert or transposed.
+    # They're agnostic. It's the responsibility of calling code to interpret
+    # them correctly.
     def __init__(self, step: str, octave: int, alter: int=0):
-        self.step = step
+        self.step = step # One of {'A', 'B', 'C', 'D', 'E', 'F', 'G'}.
         self.octave = octave
-        self.alter = alter
+        self.alter = alter # 0, -1, 1, 2, -2
+
+    def __repr__(self):
+        return f'<Pitch {self.scientific_pitch_string()}>'
 
     def __eq__(self, other):
         return self.step == other.step and self.octave == other.octave and self.alter == other.alter
+
+    @classmethod
+    def from_midi_number(cls, midi_number, prefer_flat=True):
+        octave = (midi_number // NUM_PITCHES_IN_OCTAVE) - 1
+        step_integer = midi_number % NUM_PITCHES_IN_OCTAVE
+        if step_integer in STEP_INTEGER_WHITE_KEYS:
+            alter = 0
+        else:
+            if prefer_flat:
+                step_integer = (step_integer + 1) % NUM_PITCHES_IN_OCTAVE
+                alter = -1
+            else:
+                step_integer = (step_integer - 1 + NUM_PITCHES_IN_OCTAVE) % NUM_PITCHES_IN_OCTAVE
+                alter = 1
+        return Pitch(STEP_INTEGER_WHITE_KEYS[step_integer], octave, alter)
+
+    def midi_number(self):
+        # C4 = 60
+        return (NUM_PITCHES_IN_OCTAVE * (self.octave + 1)) + self.step_integer() + self.alter
+
+    def step_integer(self):
+        return {'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11}[self.step]
+
+    def accidental_string(self):
+        return {0: '', 1: '#', 2: '##', -1: 'b', -2: 'bb'}[self.alter]
+
+    def scientific_pitch_string(self):
+        return f'{self.step}{self.accidental_string()}{self.octave}'
+
+    def transpose_chromatic(self, semitones):
+        """
+        Returns a new Pitch object with the given chromatic
+        transposition applied.
+        """
+        if not semitones:
+            return self # No alteration needed.
+        return Pitch.from_midi_number(self.midi_number + semitones)
+
+    def to_concert(self, part: Part):
+        """
+        Given a Part object that describe's this Pitch's transposition,
+        returns this Pitch in concert pitch, taking the Part's
+        transposition into account.
+        """
+        return self.transpose_chromatic(part.transpose)
 
 class Clef:
     def __init__(self, sign, line):
