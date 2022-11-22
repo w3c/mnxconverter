@@ -234,10 +234,39 @@ class MusicXMLReader:
             raise NotationDataError("<score-part> missing 'id' attribute.")
         part_name_el = score_part_el.find('part-name')
         name = part_name_el.text if part_name_el is not None else None
+        try:
+            first_measure_el = self.xml.xpath('measure/part[@id=$partid]', partid=part_id)[0]
+        except IndexError:
+            transpose = 0
+        else:
+            transpose = self.parse_measure_transpose(first_measure_el)
         return Part(
             part_id=part_id,
-            name=name
+            name=name,
+            transpose=transpose
         )
+
+    def parse_measure_transpose(self, measure_el):
+        """
+        Given the first <measure> element for a part, determines the
+        part's transposition and returns it, as a chromatic value.
+        """
+        result = 0
+        transpose_el = measure_el.find('attributes/transpose')
+        if transpose_el is not None:
+            chromatic_el = transpose_el.find('chromatic')
+            if chromatic_el is not None and chromatic_el.text:
+                try:
+                    result += int(chromatic_el.text)
+                except ValueError:
+                    pass
+            octave_change_el = transpose_el.find('octave-change')
+            if octave_change_el is not None and octave_change_el.text:
+                try:
+                    result += int(octave_change_el.text) * 12
+                except ValueError:
+                    pass
+        return result
 
     def parse_measures(self):
         score = self.score

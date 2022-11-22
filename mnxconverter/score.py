@@ -33,9 +33,10 @@ class Score:
         return None
 
 class Part:
-    def __init__(self, part_id=None, name=None):
+    def __init__(self, part_id=None, name=None, transpose=0):
         self.part_id = part_id
         self.name = name
+        self.transpose = transpose
 
 class Bar:
     def __init__(self, score, idx: int, timesig=None, keysig=None):
