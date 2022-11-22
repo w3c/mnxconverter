@@ -2,6 +2,26 @@ from fractions import Fraction
 
 DEFAULT_KEYSIG = 0
 NUM_PITCHES_IN_OCTAVE = 12
+KEYSIG_PITCHES = (
+    # Maps fifths to tuples of (step, alter)
+    (0, ('C', 0)),
+    (1, ('G', 0)),
+    (2, ('D', 0)),
+    (3, ('A', 0)),
+    (4, ('E', 0)),
+    (5, ('B', 0)),
+    (6, ('F', 1)),
+    (7, ('C', 1)),
+    (-1, ('F', 0)),
+    (-2, ('B', -1)),
+    (-3, ('E', -1)),
+    (-4, ('A', -1)),
+    (-5, ('D', -1)),
+    (-6, ('G', -1)),
+    (-7, ('C', -1)),
+)
+KEYSIG_TO_PITCH = {k: v for k, v in KEYSIG_PITCHES}
+PITCH_TO_KEYSIG = {v: k for k, v in KEYSIG_PITCHES}
 
 class Score:
     def __init__(self):
@@ -44,7 +64,7 @@ class Bar:
         self.score = score
         self.idx = idx # Zero-based index of this bar in the score.
         self.timesig = timesig
-        self.keysig = keysig # In concert pitch.
+        self.keysig = keysig # KeySignature object, in concert pitch.
         self.start_repeat = False
         self.end_repeat = 0
         self.start_ending = None # Ending object.
@@ -71,11 +91,12 @@ class Bar:
             if bar.keysig is not None:
                 return bar.keysig
             idx -= 1
-        return DEFAULT_KEYSIG
+        return KeySignature(DEFAULT_KEYSIG)
 
     def keysig_changed(self):
         "Returns True if this Bar's active keysig has changed since the last bar."
-        return self.idx == 0 or self.previous().active_keysig() != self.active_keysig()
+        return (self.idx == 0 and self.keysig and self.keysig.fifths != 0) or \
+            (self.idx != 0 and self.previous().active_keysig() != self.active_keysig())
 
 class BarPart:
     def __init__(self):
@@ -327,7 +348,7 @@ class Pitch:
             else:
                 step_integer = (step_integer - 1 + NUM_PITCHES_IN_OCTAVE) % NUM_PITCHES_IN_OCTAVE
                 alter = 1
-        return Pitch(STEP_INTEGER_WHITE_KEYS[step_integer], octave, alter)
+        return cls(STEP_INTEGER_WHITE_KEYS[step_integer], octave, alter)
 
     def midi_number(self):
         # C4 = 60
@@ -353,8 +374,44 @@ class Pitch:
 
     def to_concert(self, part: Part):
         """
-        Given a Part object that describe's this Pitch's transposition,
+        Given a Part object that describes this Pitch's transposition,
         returns this Pitch in concert pitch, taking the Part's
+        transposition into account.
+        """
+        return self.transpose_chromatic(part.transpose)
+
+class KeySignature:
+    def __init__(self, fifths):
+        self.fifths = fifths
+
+    def __eq__(self, other):
+        return self.fifths == other.fifths
+
+    @classmethod
+    def from_pitch(cls, pitch: Pitch):
+        try:
+            fifths = PITCH_TO_KEYSIG[(pitch.step, pitch.alter)]
+        except KeyError:
+            # TODO: Try enharmonic equivalents.
+            raise NotImplementedError(f"Pitch {pitch.scientific_pitch_string()} doesn't have a clear key signature")
+        return cls(fifths)
+
+    def pitch(self):
+        step, alter = KEYSIG_TO_PITCH[self.fifths]
+        # TODO: Octave is hard-coded to 4. It would be more elegant
+        # to have a separate PitchClass class to represent abstract
+        # pitch classes removed from a specific octave.
+        return Pitch(step, 4, alter)
+
+    def transpose_chromatic(self, semitones):
+        if not semitones:
+            return self # No alteration needed.
+        return KeySignature.from_pitch(self.pitch().transpose_chromatic(semitones))
+
+    def to_concert(self, part: Part):
+        """
+        Given a Part object that describes this KeySignature, returns
+        this KeySignature in concert pitch, taking the Part's
         transposition into account.
         """
         return self.transpose_chromatic(part.transpose)

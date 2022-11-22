@@ -327,8 +327,7 @@ class MusicXMLReader:
             elif tag == 'divisions':
                 self.part_divisions[part.part_id] = self.parse_divisions(el)
             elif tag == 'key':
-                # TODO: Convert result of parse_key() to concert pitch.
-                bar.keysig = self.parse_key(el)
+                bar.keysig = self.parse_key(el, part)
             elif tag == 'time':
                 bar.timesig = self.parse_time(el)
 
@@ -435,13 +434,13 @@ class MusicXMLReader:
         except ValueError:
             return 0 # TODO: Raise an error here?
 
-    def parse_key(self, key_el):
-        "Parses <key>. Returns keysig as an integer."
+    def parse_key(self, key_el, part: Part):
+        "Parses <key>. Returns a KeySignature object in concert pitch."
         try:
             fifths = int(key_el.find('fifths').text)
         except (AttributeError, ValueError):
             fifths = DEFAULT_KEYSIG
-        return fifths
+        return KeySignature(fifths).to_concert(part)
 
     def parse_time(self, time_el):
         "Parses <time>. Returns timesig as a list."

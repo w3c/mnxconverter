@@ -74,7 +74,7 @@ class MNXWriter:
             direction_els.append(time_el)
         if bar.keysig and bar.keysig_changed():
             key_el = quick_element(None, 'key', attrs={
-                'fifths': microformat_keysig(bar.keysig),
+                'fifths': microformat_keysig(bar.keysig.fifths),
             })
             direction_els.append(key_el)
         if bar.start_repeat:
