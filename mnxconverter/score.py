@@ -349,7 +349,7 @@ class Pitch:
         """
         if not semitones:
             return self # No alteration needed.
-        return Pitch.from_midi_number(self.midi_number + semitones)
+        return Pitch.from_midi_number(self.midi_number() + semitones)
 
     def to_concert(self, part: Part):
         """
