@@ -1,35 +1,34 @@
 # mnxconverter
 
 A Python package for converting between MusicXML and
-the new MNX-Common format.
+the new MNX format.
 
 ## Disclaimer
 
-**This is alpha software!** The MNX-Common format is being
-actively designed — so anything in this code might change,
-including the very name MNX-Common itself.
+**This is alpha software!** The MNX format is being
+actively designed — so anything in this code might change.
 
 This converter is also very limited in scope at the moment.
 So far, it only reliably converts the types of notations
-described in [MNX-Common by example](https://w3c.github.io/mnx/by-example/).
+described in [Comparing MNX and MusicXML](https://w3c.github.io/mnx/docs/comparisons/musicxml/).
 
 ## Goals and non-goals
 
 The goals of this code are:
 
-* Get a sense of how MNX-Common "feels" in practice.
+* Get a sense of how MNX "feels" in practice.
 Writing an importer and exporter forces us to reckon with
 design decisions in visceral, unavoidable ways. How easy
 are the data structures to understand and work with?
 
 * Get developers involved in the design process for
-MNX-Common. Play with this code, see what it generates
+MNX. Play with this code, see what it generates
 for your MusicXML files, consider how easy (or not)
-the concepts are to think about — then [tell us](https://github.com/w3c/mnx/issues)
+the concepts are to think about — then [tell us](https://github.com/w3c/mnx/issues)
 what needs to change.
 
 * Eventually serve as a fully featured, production-ready
-converter between MNX-Common and MusicXML. Not just an
+converter between MNX and MusicXML. Not just an
 academic "reference implementation," but a real-world
 tool you can use in your music-notation product.
 
@@ -65,9 +64,9 @@ help we want:
 1. **Feedback on concepts.** Read through the abstractions
 in `mnxconverter/score.py`. These classes are very closely
 aligned with the concepts of the
-[MNX-Common specification](https://w3c.github.io/mnx/specification/common/)
+[MNX specification](https://w3c.github.io/mnx/docs/)
 in general. Do they make sense? And do you envision it
-would be doable to integrate MNX-Common in your notation
+would be doable to integrate MNX in your notation
 app — for both import and export?
 
 2. **Feedback on converter accuracy.** Run the converter on
@@ -78,7 +77,7 @@ mind the scope of the importer is still quite small.)
 MusicXML files? Help expand the test suite and find bugs
 in the converter.
 
-4. **Help with coding.** Help implement new MNX-Common
+4. **Help with coding.** Help implement new MNX
 features. Anything that's been specified in the spec is
 fair game for being implemented here.
 
@@ -92,7 +91,7 @@ First, make sure you have `lxml` installed:
 pip install lxml
 ```
 
-To convert a MusicXML file, outputting the MNX-Common file
+To convert a MusicXML file, outputting the MNX file
 to standard output:
 
 ```
@@ -108,13 +107,13 @@ python runtests.py
 ## Test suite
 
 To add a test to the test suite, put two files in the `tests`
-directory: a MusicXML file and the expected MNX-Common output.
+directory: a MusicXML file and the expected MNX output.
 Make sure they have the same name, with two different extensions:
 `.musicxml` and `.mnx`. From then on, `runtests.py` will find
 the new test.
 
 At the moment, the test runner looks for an *exact* match in the
-generated MNX-Common markup. It would be better to ignore order of
+generated MNX markup. It would be better to ignore order of
 attributes, etc.
 
 ## Credits
@@ -123,7 +122,6 @@ This is developed by Adrian Holovaty of
 [Soundslice](https://www.soundslice.com/) and the
 [W3C Music Notation Community Group](https://www.w3.org/community/music-notation/).
 
-The MNX-Common format was originally designed by
-Joe Berkovitz.
+The MNX format was originally designed by Joe Berkovitz.
 
 MusicXML was originally designed by Michael Good.
