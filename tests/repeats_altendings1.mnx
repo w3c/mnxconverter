@@ -1,67 +1,138 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-        <repeat type="start"/>
-      </directions-global>
-    </measure-global>
-    <measure-global>
-      <directions-global>
-        <ending type="start" number="1"/>
-        <ending type="stop"/>
-        <repeat type="end"/>
-      </directions-global>
-    </measure-global>
-    <measure-global>
-      <directions-global>
-        <ending type="start" number="2"/>
-        <ending type="stop"/>
-        <repeat type="end"/>
-      </directions-global>
-    </measure-global>
-    <measure-global>
-      <directions-global>
-        <ending type="start" number="3"/>
-        <ending type="discontinue"/>
-      </directions-global>
-    </measure-global>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <event value="/1">
-          <note pitch="C5"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/1">
-          <note pitch="E5"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/1">
-          <note pitch="G4"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/1">
-          <note pitch="C5"/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "repeat-start": {},
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      },
+      {
+        "ending": {
+          "numbers": [
+            1
+          ]
+        },
+        "repeat-end": {}
+      },
+      {
+        "ending": {
+          "numbers": [
+            2
+          ]
+        },
+        "repeat-end": {}
+      },
+      {
+        "ending": {
+          "numbers": [
+            3
+          ]
+        }
+      }
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "G"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

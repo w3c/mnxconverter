@@ -68,7 +68,7 @@ class Bar:
         self.start_repeat = False
         self.end_repeat = 0
         self.start_ending = None # Ending object.
-        self.stop_ending = None # Ending object.
+        self.stop_ending = None # Ending object. TODO: Remove?
         self.bar_parts = {} # Maps part_ids to BarParts.
 
     def previous(self):
@@ -218,6 +218,12 @@ class Event(SequenceItem):
         self.event_items = [] # EventItem objects.
         self.slurs = [] # Slur objects.
         self.is_referenced = False # True if this Event's event_id is referenced by another object in the Score.
+
+    def is_rest(self):
+        for event_item in self.event_items:
+            if isinstance(event_item, Note):
+                return False
+        return True
 
 class Direction(SequenceItem):
     pass

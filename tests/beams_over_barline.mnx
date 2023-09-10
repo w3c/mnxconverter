@@ -1,54 +1,129 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-      </directions-global>
-    </measure-global>
-    <measure-global/>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <beams>
-          <beam events="ev3 ev4 ev5 ev6"/>
-        </beams>
-        <event value="/2">
-          <rest/>
-        </event>
-        <event value="/4">
-          <rest/>
-        </event>
-        <event value="/8" id="ev3">
-          <note pitch="C5"/>
-        </event>
-        <event value="/8" id="ev4">
-          <note pitch="D5"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/8" id="ev5">
-          <note pitch="E5"/>
-        </event>
-        <event value="/8" id="ev6">
-          <note pitch="F5"/>
-        </event>
-        <event value="/4">
-          <rest/>
-        </event>
-        <event value="/2">
-          <rest/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      },
+      {}
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "rest": {},
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "rest": {},
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev3",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev4",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev5",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev6",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "rest": {},
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "rest": {},
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

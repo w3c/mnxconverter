@@ -1,25 +1,45 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-      </directions-global>
-    </measure-global>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <event value="/1">
-          <note pitch="C4"/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      }
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

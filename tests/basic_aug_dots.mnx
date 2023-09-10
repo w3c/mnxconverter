@@ -1,36 +1,101 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-      </directions-global>
-    </measure-global>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <event value="/4d">
-          <note pitch="G4"/>
-          <note pitch="C5"/>
-        </event>
-        <event value="/8">
-          <note pitch="E5"/>
-        </event>
-        <event value="/4d">
-          <note pitch="F4"/>
-          <note pitch="D5"/>
-        </event>
-        <event value="/8">
-          <note pitch="F5"/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      }
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "quarter",
+                    "dots": 1
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "G"
+                      }
+                    },
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter",
+                    "dots": 1
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "F"
+                      }
+                    },
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

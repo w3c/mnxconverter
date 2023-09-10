@@ -1,57 +1,179 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-        <key fifths="-2"/>
-      </directions-global>
-    </measure-global>
-    <measure-global/>
-    <measure-global/>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <event value="/4">
-          <note pitch="F4"/>
-        </event>
-        <event value="/4">
-          <note pitch="G4"/>
-        </event>
-        <event value="/4">
-          <note pitch="G#4" accidental="sharp"/>
-        </event>
-        <event value="/4">
-          <note pitch="A4"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/2">
-          <note pitch="Bb4"/>
-        </event>
-        <event value="/4">
-          <note pitch="Db5" accidental="flat"/>
-        </event>
-        <event value="/4">
-          <note pitch="Db5"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <event value="/1">
-          <note pitch="D5" accidental="natural"/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "key": {
+          "fifths": -2
+        },
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      },
+      {},
+      {}
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "G"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "accidentalDisplay": {
+                        "show": true
+                      },
+                      "pitch": {
+                        "alter": 1,
+                        "octave": 4,
+                        "step": "G"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 4,
+                        "step": "A"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "alter": -1,
+                        "octave": 4,
+                        "step": "B"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "accidentalDisplay": {
+                        "show": true
+                      },
+                      "pitch": {
+                        "alter": -1,
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "alter": -1,
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "whole"
+                  },
+                  "notes": [
+                    {
+                      "accidentalDisplay": {
+                        "show": true
+                      },
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

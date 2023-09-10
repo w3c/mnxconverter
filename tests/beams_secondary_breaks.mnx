@@ -1,158 +1,528 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-      </directions-global>
-    </measure-global>
-    <measure-global/>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <beams>
-          <beam events="ev1 ev2 ev3 ev4 ev5 ev6 ev7 ev8">
-            <beam events="ev1 ev2 ev3 ev4 ev5 ev6 ev7 ev8"/>
-          </beam>
-          <beam events="ev9 ev10 ev11 ev12">
-            <beam events="ev9 ev10 ev11 ev12"/>
-          </beam>
-          <beam events="ev13 ev14 ev15 ev16">
-            <beam events="ev13 ev14"/>
-            <beam events="ev15 ev16"/>
-          </beam>
-        </beams>
-        <event value="/16" id="ev1">
-          <note pitch="C5"/>
-        </event>
-        <event value="/16" id="ev2">
-          <note pitch="D5"/>
-        </event>
-        <event value="/16" id="ev3">
-          <note pitch="E5"/>
-        </event>
-        <event value="/16" id="ev4">
-          <note pitch="F5"/>
-        </event>
-        <event value="/16" id="ev5">
-          <note pitch="C5"/>
-        </event>
-        <event value="/16" id="ev6">
-          <note pitch="D5"/>
-        </event>
-        <event value="/16" id="ev7">
-          <note pitch="E5"/>
-        </event>
-        <event value="/16" id="ev8">
-          <note pitch="F5"/>
-        </event>
-        <event value="/16" id="ev9">
-          <note pitch="C5"/>
-        </event>
-        <event value="/16" id="ev10">
-          <note pitch="D5"/>
-        </event>
-        <event value="/16" id="ev11">
-          <note pitch="E5"/>
-        </event>
-        <event value="/16" id="ev12">
-          <note pitch="F5"/>
-        </event>
-        <event value="/16" id="ev13">
-          <note pitch="C5"/>
-        </event>
-        <event value="/16" id="ev14">
-          <note pitch="D5"/>
-        </event>
-        <event value="/16" id="ev15">
-          <note pitch="E5"/>
-        </event>
-        <event value="/16" id="ev16">
-          <note pitch="F5"/>
-        </event>
-      </sequence>
-    </measure>
-    <measure>
-      <sequence>
-        <beams>
-          <beam events="ev17 ev18 ev19 ev20 ev21 ev22 ev23 ev24">
-            <beam events="ev17 ev18 ev19 ev20">
-              <beam events="ev17 ev18 ev19 ev20"/>
-            </beam>
-            <beam events="ev21 ev22 ev23 ev24">
-              <beam events="ev21 ev22 ev23 ev24"/>
-            </beam>
-          </beam>
-          <beam events="ev25 ev26 ev27 ev28 ev29 ev30 ev31 ev32">
-            <beam events="ev25 ev26 ev27 ev28">
-              <beam events="ev25 ev26"/>
-              <beam events="ev27 ev28"/>
-            </beam>
-            <beam events="ev29 ev30 ev31 ev32">
-              <beam events="ev29 ev30"/>
-              <beam events="ev31 ev32"/>
-            </beam>
-          </beam>
-        </beams>
-        <event value="/32" id="ev17">
-          <note pitch="C5"/>
-        </event>
-        <event value="/32" id="ev18">
-          <note pitch="D5"/>
-        </event>
-        <event value="/32" id="ev19">
-          <note pitch="E5"/>
-        </event>
-        <event value="/32" id="ev20">
-          <note pitch="F5"/>
-        </event>
-        <event value="/32" id="ev21">
-          <note pitch="C5"/>
-        </event>
-        <event value="/32" id="ev22">
-          <note pitch="D5"/>
-        </event>
-        <event value="/32" id="ev23">
-          <note pitch="E5"/>
-        </event>
-        <event value="/32" id="ev24">
-          <note pitch="F5"/>
-        </event>
-        <event value="/32" id="ev25">
-          <note pitch="C5"/>
-        </event>
-        <event value="/32" id="ev26">
-          <note pitch="D5"/>
-        </event>
-        <event value="/32" id="ev27">
-          <note pitch="E5"/>
-        </event>
-        <event value="/32" id="ev28">
-          <note pitch="F5"/>
-        </event>
-        <event value="/32" id="ev29">
-          <note pitch="C5"/>
-        </event>
-        <event value="/32" id="ev30">
-          <note pitch="D5"/>
-        </event>
-        <event value="/32" id="ev31">
-          <note pitch="E5"/>
-        </event>
-        <event value="/32" id="ev32">
-          <note pitch="F5"/>
-        </event>
-        <event value="/2">
-          <rest/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      },
+      {}
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev1",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev2",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev3",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev4",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev5",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev6",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev7",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev8",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev9",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev10",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev11",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev12",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev13",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev14",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev15",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "16th"
+                  },
+                  "id": "ev16",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev17",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev18",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev19",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev20",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev21",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev22",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev23",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev24",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev25",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev26",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev27",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev28",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev29",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev30",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "D"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev31",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "32nd"
+                  },
+                  "id": "ev32",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "F"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "rest": {},
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

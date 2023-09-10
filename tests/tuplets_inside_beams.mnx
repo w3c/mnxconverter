@@ -1,50 +1,140 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<mnx>
-  <global>
-    <measure-global>
-      <directions-global>
-        <time signature="4/4"/>
-      </directions-global>
-    </measure-global>
-  </global>
-  <part>
-    <part-name>Music</part-name>
-    <measure>
-      <directions-part>
-        <clef sign="G" line="2"/>
-      </directions-part>
-      <sequence>
-        <beams>
-          <beam events="ev1 ev2 ev3 ev4 ev5 ev6">
-            <beam events="ev2 ev3 ev4"/>
-          </beam>
-        </beams>
-        <event value="/8" id="ev1">
-          <note pitch="C5"/>
-        </event>
-        <tuplet inner="3/16" outer="2/16">
-          <event value="/16" id="ev2">
-            <note pitch="D5"/>
-          </event>
-          <event value="/16" id="ev3">
-            <note pitch="E5"/>
-          </event>
-          <event value="/16" id="ev4">
-            <note pitch="D5"/>
-          </event>
-        </tuplet>
-        <event value="/8" id="ev5">
-          <note pitch="C5"/>
-        </event>
-        <event value="/8" id="ev6">
-          <note pitch="E5"/>
-        </event>
-        <event value="/2">
-          <rest/>
-        </event>
-      </sequence>
-    </measure>
-  </part>
-</mnx>
-
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      }
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "content": [
+            {
+              "content": [
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev1",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "content": [
+                    {
+                      "duration": {
+                        "base": "16th"
+                      },
+                      "id": "ev2",
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 5,
+                            "step": "D"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "16th"
+                      },
+                      "id": "ev3",
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 5,
+                            "step": "E"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "16th"
+                      },
+                      "id": "ev4",
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 5,
+                            "step": "D"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    }
+                  ],
+                  "inner": {
+                    "duration": "TODO",
+                    "multiple": 3
+                  },
+                  "outer": {
+                    "duration": "TODO",
+                    "multiple": 2
+                  }
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev5",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "eighth"
+                  },
+                  "id": "ev6",
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "E"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "duration": {
+                    "base": "half"
+                  },
+                  "rest": {},
+                  "type": "event"
+                }
+              ],
+              "type": "sequence"
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}
