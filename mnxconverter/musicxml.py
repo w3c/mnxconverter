@@ -134,8 +134,8 @@ def get_musicxml_etree(filedata: bytes):
         musicxml_string = filedata
     try:
         return etree.XML(musicxml_string, parser)
-    except etree.XMLSyntaxError:
-        raise NotationImportError("XML syntax error.")
+    except etree.XMLSyntaxError as e:
+        raise NotationImportError(f"XML syntax error: {e.args[0]}")
 
 def convert_to_timewise(xml):
     """
