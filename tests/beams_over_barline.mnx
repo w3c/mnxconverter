@@ -17,7 +17,7 @@
     {
       "measures": [
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -64,13 +64,12 @@
                   ],
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         },
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -117,8 +116,7 @@
                   "rest": {},
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         }

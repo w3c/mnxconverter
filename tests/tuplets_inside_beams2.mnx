@@ -16,7 +16,7 @@
     {
       "measures": [
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -147,8 +147,7 @@
                   "rest": {},
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         }

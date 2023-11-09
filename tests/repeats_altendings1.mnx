@@ -40,7 +40,7 @@
     {
       "measures": [
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -57,13 +57,12 @@
                   ],
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         },
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -80,13 +79,12 @@
                   ],
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         },
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -103,13 +101,12 @@
                   ],
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         },
         {
-          "content": [
+          "sequences": [
             {
               "content": [
                 {
@@ -126,8 +123,7 @@
                   ],
                   "type": "event"
                 }
-              ],
-              "type": "sequence"
+              ]
             }
           ]
         }

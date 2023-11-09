@@ -117,13 +117,13 @@ class MNXWriter:
         result = {}
         # TODO: Implement clef changes.
         # TODO: Implement beams.
-        result['content'] = list(self.encode_sequence(sequence) for sequence in bar_part.sequences)
+        result['sequences'] = list(self.encode_sequence(sequence) for sequence in bar_part.sequences)
         return result
 
     def encode_sequence(self, sequence:Sequence):
-        result = {'type': 'sequence'}
-        result['content'] = list(self.encode_sequence_item(item) for item in sequence.items)
-        return result
+        return {
+            'content': list(self.encode_sequence_item(item) for item in sequence.items)
+        }
 
     def encode_sequence_item(self, item:SequenceItem):
         if isinstance(item, Event):
