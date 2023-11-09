@@ -101,7 +101,7 @@ class Bar:
 class BarPart:
     def __init__(self):
         self.sequences = []
-        self.directions = []
+        self.clefs = []
 
     def get_sequence(self, sequence_id):
         for sequence in self.sequences:
@@ -225,9 +225,6 @@ class Event(SequenceItem):
                 return False
         return True
 
-class Direction(SequenceItem):
-    pass
-
 class Beam:
     def __init__(self):
         self.events = []
@@ -237,10 +234,6 @@ class BeamHook:
     def __init__(self, event, is_forward):
         self.event = event
         self.is_forward = is_forward
-
-class ClefDirection(Direction):
-    def __init__(self, clef):
-        self.clef = clef
 
 class SequenceDirection(SequenceItem):
     pass
@@ -423,6 +416,11 @@ class KeySignature:
         return self.transpose_chromatic(part.transpose)
 
 class Clef:
-    def __init__(self, sign, line):
+    def __init__(self, sign, line:int):
         self.sign = sign
         self.line = line
+
+class PositionedClef:
+    def __init__(self, clef, position:Fraction):
+        self.clef = clef
+        self.position = position

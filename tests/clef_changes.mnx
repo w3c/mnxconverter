@@ -6,8 +6,7 @@
           "count": 4,
           "unit": 4
         }
-      },
-      {}
+      }
     ]
   },
   "mnx": {
@@ -23,6 +22,18 @@
                 "line": 2,
                 "sign": "G"
               }
+            },
+            {
+              "clef": {
+                "line": 4,
+                "sign": "F"
+              },
+              "position": {
+                "fraction": [
+                  1,
+                  2
+                ]
+              }
             }
           ],
           "sequences": [
@@ -30,27 +41,12 @@
               "content": [
                 {
                   "duration": {
-                    "base": "half"
-                  },
-                  "rest": {},
-                  "type": "event"
-                },
-                {
-                  "duration": {
                     "base": "quarter"
                   },
-                  "rest": {},
-                  "type": "event"
-                },
-                {
-                  "duration": {
-                    "base": "eighth"
-                  },
-                  "id": "ev3",
                   "notes": [
                     {
                       "pitch": {
-                        "octave": 5,
+                        "octave": 4,
                         "step": "C"
                       }
                     }
@@ -59,52 +55,13 @@
                 },
                 {
                   "duration": {
-                    "base": "eighth"
+                    "base": "quarter"
                   },
-                  "id": "ev4",
                   "notes": [
                     {
                       "pitch": {
-                        "octave": 5,
-                        "step": "D"
-                      }
-                    }
-                  ],
-                  "type": "event"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sequences": [
-            {
-              "content": [
-                {
-                  "duration": {
-                    "base": "eighth"
-                  },
-                  "id": "ev5",
-                  "notes": [
-                    {
-                      "pitch": {
-                        "octave": 5,
-                        "step": "E"
-                      }
-                    }
-                  ],
-                  "type": "event"
-                },
-                {
-                  "duration": {
-                    "base": "eighth"
-                  },
-                  "id": "ev6",
-                  "notes": [
-                    {
-                      "pitch": {
-                        "octave": 5,
-                        "step": "F"
+                        "octave": 3,
+                        "step": "G"
                       }
                     }
                   ],
@@ -114,14 +71,28 @@
                   "duration": {
                     "base": "quarter"
                   },
-                  "rest": {},
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 3,
+                        "step": "E"
+                      }
+                    }
+                  ],
                   "type": "event"
                 },
                 {
                   "duration": {
-                    "base": "half"
+                    "base": "quarter"
                   },
-                  "rest": {},
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 3,
+                        "step": "C"
+                      }
+                    }
+                  ],
                   "type": "event"
                 }
               ]

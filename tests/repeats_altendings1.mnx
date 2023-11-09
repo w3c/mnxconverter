@@ -40,6 +40,14 @@
     {
       "measures": [
         {
+          "clefs": [
+            {
+              "clef": {
+                "line": 2,
+                "sign": "G"
+              }
+            }
+          ],
           "sequences": [
             {
               "content": [

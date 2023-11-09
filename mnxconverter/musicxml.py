@@ -285,7 +285,7 @@ class MusicXMLReader:
         for el in measure_part_el:
             tag = el.tag
             if tag == 'attributes':
-                clef = self.parse_measure_attributes(el, bar, part, bar_part)
+                clef = self.parse_measure_attributes(el, bar, part, bar_part, position)
             elif tag == 'backup':
                 position -= self.parse_forward_backup(el)
             elif tag == 'barline':
@@ -295,7 +295,7 @@ class MusicXMLReader:
             elif tag == 'forward':
                 position += self.parse_forward_backup(el)
             elif tag == 'note':
-                self.parse_note(el, part, bar_part)
+                position += self.parse_note(el, part, bar_part)
         bar.bar_parts[part.part_id] = bar_part
 
         # Handle the slurs. For each completed slur, we find the
@@ -319,11 +319,11 @@ class MusicXMLReader:
             self.add_octave_shift(shift_type, note_list)
         self.complete_octave_shifts.clear()
 
-    def parse_measure_attributes(self, attributes_el, bar, part, bar_part):
+    def parse_measure_attributes(self, attributes_el, bar, part, bar_part, position):
         for el in attributes_el:
             tag = el.tag
             if tag == 'clef':
-                bar_part.directions.append(self.parse_clef(el))
+                bar_part.clefs.append(self.parse_clef(part, el, position))
             elif tag == 'divisions':
                 self.part_divisions[part.part_id] = self.parse_divisions(el)
             elif tag == 'key':
@@ -331,7 +331,7 @@ class MusicXMLReader:
             elif tag == 'time':
                 bar.timesig = self.parse_time(el)
 
-    def parse_clef(self, clef_el):
+    def parse_clef(self, part, clef_el, musicxml_position):
         sign = None
         line = None
         for el in clef_el:
@@ -342,11 +342,20 @@ class MusicXMLReader:
             elif tag == 'line':
                 if el.text is not None:
                     line = el.text
-        return ClefDirection(
+        try:
+            line = int(line)
+        except ValueError:
+            raise NotationDataError(f'<clef> has invalid line: "{line}".')
+        position = Fraction(
+            musicxml_position,
+            self.part_divisions[part.part_id] * DIVISION_DURATION_WHOLE_NOTE
+        )
+        return PositionedClef(
             clef=Clef(
                 sign=sign,
                 line=line,
-            )
+            ),
+            position=position
         )
 
     def parse_divisions(self, divisions_el):
@@ -551,6 +560,14 @@ class MusicXMLReader:
             self.current_beams.append((sequence, event, beams))
         if self.current_octave_shift:
             self.current_octave_shift[1].append(event_item)
+
+        # Return the duration of this event, to increment our internal position.
+        # We don't do this if is_chord==True, because we assume the first <note>
+        # already incremented the position.
+        if duration is not None and not is_chord:
+            return duration
+        else:
+            return 0
 
     def parse_beam(self, beam_el):
         try:

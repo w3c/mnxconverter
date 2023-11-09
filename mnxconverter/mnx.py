@@ -114,10 +114,12 @@ class MNXWriter:
         return result
 
     def encode_part_measure(self, bar_part:BarPart):
-        result = {}
-        # TODO: Implement clef changes.
+        result = {
+            'sequences': list(self.encode_sequence(sequence) for sequence in bar_part.sequences)
+        }
+        if bar_part.clefs:
+            result['clefs'] = list(self.encode_positioned_clef(clef) for clef in bar_part.clefs)
         # TODO: Implement beams.
-        result['sequences'] = list(self.encode_sequence(sequence) for sequence in bar_part.sequences)
         return result
 
     def encode_sequence(self, sequence:Sequence):
@@ -223,4 +225,23 @@ class MNXWriter:
             'end': octave_shift.end_pos,
             'type': 'octave-shift',
             'value': OCTAVE_SHIFT_TYPES_FOR_EXPORT[octave_shift.shift_type],
+        }
+
+    def encode_positioned_clef(self, positioned_clef:PositionedClef):
+        result = {
+            'clef': self.encode_clef(positioned_clef.clef)
+        }
+        if positioned_clef.position.numerator != 0:
+            result['position'] = self.encode_rhythmic_position(positioned_clef.position)
+        return result
+
+    def encode_clef(self, clef:Clef):
+        return {
+            'line': clef.line,
+            'sign': clef.sign
+        }
+
+    def encode_rhythmic_position(self, position:Fraction):
+        return {
+            "fraction": [position.numerator, position.denominator]
         }
