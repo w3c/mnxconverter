@@ -230,8 +230,8 @@ class MusicXMLReader:
     def parse_part(self, score_part_el):
         try:
             part_id = score_part_el.attrib['id']
-        except AttributeError:
-            raise NotationDataError("<score-part> missing 'id' attribute.")
+        except KeyError:
+            raise NotationDataError(f"<score-part> on line {score_part_el.sourceline} is missing an 'id' attribute.")
         part_name_el = score_part_el.find('part-name')
         name = part_name_el.text if part_name_el is not None else None
         try:
@@ -345,7 +345,7 @@ class MusicXMLReader:
         try:
             line = int(line)
         except ValueError:
-            raise NotationDataError(f'<clef> has invalid line: "{line}".')
+            raise NotationDataError(f'<clef> on line {clef_el.sourceline} has invalid "line" value: "{line}".')
         position = Fraction(
             musicxml_position,
             self.part_divisions[part.part_id] * DIVISION_DURATION_WHOLE_NOTE
@@ -362,7 +362,7 @@ class MusicXMLReader:
         try:
             return int(divisions_el.text)
         except ValueError:
-            raise NotationDataError(f'Invalid <divisions> value "{divisions_el.text}".')
+            raise NotationDataError(f'<divisions> on line {divisions_el.sourceline} has invalid value "{divisions_el.text}".')
 
     def parse_barline(self, barline_el, bar):
         for el in barline_el:
@@ -373,7 +373,7 @@ class MusicXMLReader:
                 try:
                     direction = el.attrib['direction']
                 except KeyError:
-                    raise NotationDataError("<repeat> missing 'direction' attribute.")
+                    raise NotationDataError(f"<repeat> on line {el.sourceline} is missing a 'direction' attribute.")
                 if direction == 'forward':
                     bar.start_repeat = True
                 elif direction == 'backward':
@@ -424,7 +424,7 @@ class MusicXMLReader:
             try:
                 shift_type = OCTAVE_SHIFT_TYPES_FOR_IMPORT[(size, type_)]
             except KeyError:
-                raise NotationDataError(f'Unsupported <{el.tag}> type/size combination.')
+                raise NotationDataError(f'<{el.tag}> on line {el.sourceline} has an unsupported type/size combination.')
             self.current_octave_shift = [shift_type, []]
         elif type_ == 'stop':
             if self.current_octave_shift is None:
@@ -466,7 +466,7 @@ class MusicXMLReader:
             if time_el.attrib.get('symbol') == 'common':
                 numerator, denominator = 4, 4
             else:
-                raise NotationDataError('Invalid <time> element.')
+                raise NotationDataError(f'<time> element on line {time_el.sourceline} contains invalid data.')
         return [numerator, denominator]
 
     def parse_note(self, note_el, part, bar_part):
@@ -486,7 +486,7 @@ class MusicXMLReader:
                 try:
                     note.rendered_acc = ACCIDENTAL_TYPES_FOR_IMPORT[el.text]
                 except KeyError:
-                    raise NotationDataError(f'Got unsupported <{tag}> value {el.text}.')
+                    raise NotationDataError(f'Got unsupported value "{el.text}" for <{tag}> on line {el.sourceline}.')
             elif tag == 'beam':
                 beams.append(self.parse_beam(el))
             elif tag == 'chord':
@@ -520,7 +520,7 @@ class MusicXMLReader:
                 )
                 num_dots = 0
             except Exception:
-                raise NotationDataError('Got <note> without valid <type> or <duration>')
+                raise NotationDataError(f'<note> on line {note_el.sourceline} is missing a valid <type> or <duration>.')
 
         rhythmic_duration = RhythmicDuration(note_type, num_dots)
         sequence = bar_part.get_or_create_sequence(sequence_id)
@@ -528,7 +528,7 @@ class MusicXMLReader:
             event = sequence.get_last_event()
             if event:
                 if rhythmic_duration and event.duration and event.duration != rhythmic_duration:
-                    raise NotationDataError('Two separate <note>s within the same chord had different durations')
+                    raise NotationDataError(f'Two separate <note>s within the same chord had different durations. One of the <note>s starts on line {note_el.sourceline}.')
             else:
                 # TODO: Got a <note> with <chord> without a previous
                 # <note> in the voice. Show an error? For now, we
@@ -545,7 +545,7 @@ class MusicXMLReader:
             event_item = Rest()
         else:
             if not note.pitch:
-                raise NotationDataError('Got a <note> without <pitch>.')
+                raise NotationDataError(f'The <note> on line {note_el.sourceline} is missing <pitch>.')
             event_item = note
             self.next_note_id += 1
 
@@ -573,7 +573,7 @@ class MusicXMLReader:
         try:
             number = int(beam_el.attrib.get('number', 1))
         except ValueError:
-            raise NotationDataError('Got invalid <beam> number attribute.')
+            raise NotationDataError(f'<beam> on line {beam_el.sourceline} has an invalid "number" attribute.')
         return (number, beam_el.text)
 
     def parse_notations(self, notations_el, note):
@@ -589,7 +589,7 @@ class MusicXMLReader:
                 elif tied_type == 'stop':
                     # Find the Note that started this tie.
                     if not note.pitch:
-                        raise NotationDataError('<tied> must come after <pitch> in <note>.')
+                        raise NotationDataError(f'<tied> on line {el.sourceline} must come after <pitch> within <note>.')
                     start_note = self.get_open_tie_by_end_note(note)
                     if start_note:
                         start_note.tie_end_note = note.note_id
@@ -648,18 +648,18 @@ class MusicXMLReader:
                 try:
                     alter = int(el.text)
                 except ValueError:
-                    raise NotationDataError('Invalid <alter> for <pitch>.')
+                    raise NotationDataError(f'<pitch> on line {pitch_el.sourceline} has an invalid <alter>.')
             elif tag == 'octave':
                 try:
                     octave = int(el.text)
                 except ValueError:
-                    raise NotationDataError('Invalid <octave> for <pitch>.')
+                    raise NotationDataError(f'<pitch> on line {pitch_el.sourceline} has an invalid <octave>.')
             elif tag == 'step':
                 step = el.text
         if step is None:
-            raise NotationDataError('Missing <step> for <pitch>.')
+            raise NotationDataError(f'<pitch> on line {pitch_el.sourceline} is missing <step>.')
         if octave is None:
-            raise NotationDataError('Missing <octave> for <pitch>.')
+            raise NotationDataError(f'<pitch> on line {pitch_el.sourceline} is missing <octave>.')
         return Pitch(step, octave, alter)
 
     def parse_time_modification(self, time_mod_el, note_type):
@@ -671,11 +671,11 @@ class MusicXMLReader:
             tag = el.tag
             if tag == 'actual-notes':
                 if not (el.text and el.text.isdigit()):
-                    raise NotationDataError(f'Invalid <{tag}> for <time-modification>.')
+                    raise NotationDataError(f'<time-modification> on line {time_mod_el.sourceline} has an invalid <{tag}>.')
                 actual_notes = int(el.text)
             elif tag == 'normal-notes':
                 if not (el.text and el.text.isdigit()):
-                    raise NotationDataError(f'Invalid <{tag}> for <time-modification>.')
+                    raise NotationDataError(f'<time-modification> on line {time_mod_el.sourceline} has an invalid <{tag}>.')
                 normal_notes = int(el.text)
             elif tag == 'normal-type':
                 normal_type = self.parse_type(el)
@@ -683,7 +683,7 @@ class MusicXMLReader:
                 num_dots += 1
         if normal_type is None:
             if note_type is None:
-                raise NotationDataError(f'<{time_mod_el.tag}> must come after <type>.')
+                raise NotationDataError(f'<{time_mod_el.tag}> on line {time_mod_el.sourceline} must come after <type>.')
             normal_type = note_type
         return TupletRatio(
             outer_numerator=normal_notes * normal_type.numerator,
@@ -697,7 +697,7 @@ class MusicXMLReader:
         try:
             return Fraction(*RHYTHM_TYPES[text])
         except KeyError:
-            raise NotationDataError(f'Unsupported <type> "{text}".')
+            raise NotationDataError(f'<type> on line {type_el.sourceline} got unsupported value "{text}".')
 
     def get_open_tie_by_end_note(self, end_note):
         for i, note in enumerate(self.open_ties):
