@@ -154,7 +154,7 @@ class MNXWriter:
         try:
             result['base'] = NOTE_VALUE_BASES[duration.frac]
         except KeyError:
-            raise ValueError(f'Invalid duration fraction {frac}')
+            raise ValueError(f'Invalid duration fraction {duration.frac}')
         if duration.dots:
             result['dots'] = duration.dots
         return result
