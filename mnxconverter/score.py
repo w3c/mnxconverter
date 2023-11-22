@@ -416,11 +416,11 @@ class KeySignature:
         return self.transpose_chromatic(part.transpose)
 
 class Clef:
-    def __init__(self, sign, line:int):
+    def __init__(self, sign, position:int):
         self.sign = sign
-        self.line = line
+        self.position = position # 0 means "middle of staff"
 
 class PositionedClef:
     def __init__(self, clef, position:Fraction):
         self.clef = clef
-        self.position = position
+        self.position = position # Rhythmic position within the bar.

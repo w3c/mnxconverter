@@ -20,7 +20,7 @@
           "clefs": [
             {
               "clef": {
-                "line": 2,
+                "position": -2,
                 "sign": "G"
               }
             }
@@ -161,7 +161,7 @@
           "clefs": [
             {
               "clef": {
-                "line": 2,
+                "position": -2,
                 "sign": "G"
               }
             }

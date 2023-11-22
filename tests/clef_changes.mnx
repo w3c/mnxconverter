@@ -19,13 +19,13 @@
           "clefs": [
             {
               "clef": {
-                "line": 2,
+                "position": -2,
                 "sign": "G"
               }
             },
             {
               "clef": {
-                "line": 4,
+                "position": 2,
                 "sign": "F"
               },
               "position": {

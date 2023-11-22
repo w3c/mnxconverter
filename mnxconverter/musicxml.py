@@ -346,16 +346,22 @@ class MusicXMLReader:
             line = int(line)
         except ValueError:
             raise NotationDataError(f'<clef> on line {clef_el.sourceline} has invalid "line" value: "{line}".')
-        position = Fraction(
+
+        # Convert MusicXML clef position (1 = bottom staff line)
+        # to MNX clef position (1 = middle staff line).
+        # TODO: This assumes a five-line staff at the moment.
+        vertical_position = (2 * line) - 6
+
+        rhythmic_position = Fraction(
             musicxml_position,
             self.part_divisions[part.part_id] * DIVISION_DURATION_WHOLE_NOTE
         )
         return PositionedClef(
             clef=Clef(
                 sign=sign,
-                line=line,
+                position=vertical_position,
             ),
-            position=position
+            position=rhythmic_position
         )
 
     def parse_divisions(self, divisions_el):

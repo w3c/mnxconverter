@@ -22,7 +22,7 @@
           "clefs": [
             {
               "clef": {
-                "line": 2,
+                "position": -2,
                 "sign": "G"
               }
             }

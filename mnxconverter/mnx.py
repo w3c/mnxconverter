@@ -237,7 +237,7 @@ class MNXWriter:
 
     def encode_clef(self, clef:Clef):
         return {
-            'line': clef.line,
+            'position': clef.position,
             'sign': clef.sign
         }
 
