@@ -1,0 +1,254 @@
+{
+  "global": {
+    "measures": [
+      {
+        "time": {
+          "count": 4,
+          "unit": 4
+        }
+      }
+    ]
+  },
+  "mnx": {
+    "version": 1
+  },
+  "parts": [
+    {
+      "measures": [
+        {
+          "clefs": [
+            {
+              "clef": {
+                "position": -2,
+                "sign": "G"
+              }
+            }
+          ],
+          "sequences": [
+            {
+              "content": [
+                {
+                  "content": [
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "B"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    }
+                  ],
+                  "type": "grace"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "content": [
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "A"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "B"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    }
+                  ],
+                  "type": "grace"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "content": [
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "G"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "A"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "B"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    }
+                  ],
+                  "type": "grace"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                },
+                {
+                  "content": [
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "F"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "G"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "A"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    },
+                    {
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "B"
+                          }
+                        }
+                      ],
+                      "type": "event"
+                    }
+                  ],
+                  "type": "grace"
+                },
+                {
+                  "duration": {
+                    "base": "quarter"
+                  },
+                  "notes": [
+                    {
+                      "pitch": {
+                        "octave": 5,
+                        "step": "C"
+                      }
+                    }
+                  ],
+                  "type": "event"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Music"
+    }
+  ]
+}

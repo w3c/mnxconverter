@@ -43,18 +43,23 @@
                   "type": "event"
                 },
                 {
-                  "duration": {
-                    "base": "eighth"
-                  },
-                  "notes": [
+                  "content": [
                     {
-                      "pitch": {
-                        "octave": 4,
-                        "step": "B"
-                      }
+                      "duration": {
+                        "base": "eighth"
+                      },
+                      "notes": [
+                        {
+                          "pitch": {
+                            "octave": 4,
+                            "step": "B"
+                          }
+                        }
+                      ],
+                      "type": "event"
                     }
                   ],
-                  "type": "event"
+                  "type": "grace"
                 },
                 {
                   "duration": {

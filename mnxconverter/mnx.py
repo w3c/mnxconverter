@@ -134,6 +134,8 @@ class MNXWriter:
             return self.encode_tuplet(item)
         elif isinstance(item, SequenceDirection):
             return self.encode_sequence_direction(item)
+        elif isinstance(item, GraceNoteGroup):
+            return self.encode_grace_note_group(item)
 
     def encode_event(self, event):
         result = {'type': 'event'}
@@ -225,6 +227,12 @@ class MNXWriter:
             'end': octave_shift.end_pos,
             'type': 'octave-shift',
             'value': OCTAVE_SHIFT_TYPES_FOR_EXPORT[octave_shift.shift_type],
+        }
+
+    def encode_grace_note_group(self, grace_note_group:GraceNoteGroup):
+        return {
+            'content': [self.encode_event(event) for event in grace_note_group.events],
+            'type': 'grace'
         }
 
     def encode_positioned_clef(self, positioned_clef:PositionedClef):

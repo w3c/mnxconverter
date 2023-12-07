@@ -122,6 +122,7 @@ class SequenceItem:
         * Tuplet
         * SequenceDirection
         * Event
+        * GraceNoteGroup
     """
     def __init__(self, parent):
         self.parent = parent # SequenceContent.
@@ -209,6 +210,11 @@ class TupletRatio:
         self.outer_denominator = outer_denominator
         self.inner_numerator = inner_numerator
         self.inner_denominator = inner_denominator
+
+class GraceNoteGroup(SequenceItem):
+    def __init__(self, parent):
+        self.parent = parent # SequenceContent.
+        self.events = []
 
 class Event(SequenceItem):
     def __init__(self, parent, event_id, duration):

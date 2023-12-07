@@ -209,6 +209,7 @@ class MusicXMLReader:
         self.current_tuplets = [] # List of [sequence, event_list, ratio] lists.
         self.open_slurs = {} # Maps MusicXML slur number to [Slur, slur_start_attrs, slur_end_attrs, first_note, last_note].
         self.complete_slurs = [] # List of lists in the same format as self.open_slurs.
+        self.current_grace_note_group = None # GraceNoteGroup object.
         self.next_event_id = 1
         self.next_note_id = 1
         self.current_octave_shift = None # [shift_type, note_list].
@@ -403,6 +404,7 @@ class MusicXMLReader:
             bar.stop_ending = Ending(ENDING_TYPES_FOR_IMPORT[ending_type])
 
     def parse_forward_backup(self, el):
+        self.current_grace_note_group = None
         duration_el = el.find('duration')
         if duration_el is None:
             return 0
@@ -478,6 +480,7 @@ class MusicXMLReader:
     def parse_note(self, note_el, part, bar_part):
         sequence_id = ''
         is_chord = False
+        is_grace = False
         is_rest = False
         duration = None
         note_type = None
@@ -501,6 +504,8 @@ class MusicXMLReader:
                 num_dots += 1
             elif tag == 'duration':
                 duration = self.parse_duration(el)
+            elif tag == 'grace':
+                is_grace = True
             elif tag == 'notations':
                 new_closed_tuplet_numbers = self.parse_notations(el, note)
                 if new_closed_tuplet_numbers:
@@ -545,7 +550,14 @@ class MusicXMLReader:
         else:
             event = Event(sequence, f'ev{self.next_event_id}', rhythmic_duration)
             self.next_event_id += 1
-            sequence.items.append(event)
+            if is_grace:
+                if not self.current_grace_note_group:
+                    self.current_grace_note_group = GraceNoteGroup(sequence)
+                    sequence.items.append(self.current_grace_note_group)
+                self.current_grace_note_group.events.append(event)
+            else:
+                self.current_grace_note_group = None
+                sequence.items.append(event)
 
         if is_rest:
             event_item = Rest()
