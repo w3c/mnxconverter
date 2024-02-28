@@ -245,7 +245,7 @@ class MNXWriter:
 
     def encode_clef(self, clef:Clef):
         return {
-            'position': clef.position,
+            'staffPosition': clef.staff_position,
             'sign': clef.sign
         }
 

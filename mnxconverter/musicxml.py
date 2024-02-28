@@ -349,9 +349,9 @@ class MusicXMLReader:
             raise NotationDataError(f'<clef> on line {clef_el.sourceline} has invalid "line" value: "{line}".')
 
         # Convert MusicXML clef position (1 = bottom staff line)
-        # to MNX clef position (1 = middle staff line).
+        # to MNX staff_position (1 = middle staff line).
         # TODO: This assumes a five-line staff at the moment.
-        vertical_position = (2 * line) - 6
+        staff_position = (2 * line) - 6
 
         rhythmic_position = Fraction(
             musicxml_position,
@@ -360,7 +360,7 @@ class MusicXMLReader:
         return PositionedClef(
             clef=Clef(
                 sign=sign,
-                position=vertical_position,
+                staff_position=staff_position,
             ),
             position=rhythmic_position
         )

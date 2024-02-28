@@ -29,8 +29,8 @@
           "clefs": [
             {
               "clef": {
-                "position": -2,
-                "sign": "G"
+                "sign": "G",
+                "staffPosition": -2
               }
             }
           ],

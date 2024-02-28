@@ -422,9 +422,9 @@ class KeySignature:
         return self.transpose_chromatic(part.transpose)
 
 class Clef:
-    def __init__(self, sign, position:int):
+    def __init__(self, sign, staff_position:int):
         self.sign = sign
-        self.position = position # 0 means "middle of staff"
+        self.staff_position = staff_position # 0 means "middle of staff"
 
 class PositionedClef:
     def __init__(self, clef, position:Fraction):
