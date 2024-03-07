@@ -659,11 +659,12 @@ class MusicXMLReader:
         for el in ornaments_el:
             tag = el.tag
             if tag == 'tremolo':
-                try:
-                    marks = int(el.text)
-                except ValueError:
-                    raise NotationDataError(f'<tremolo> on line {el.sourceline} has an invalid contents.')
-                event_markings.append(TremoloMarking(marks))
+                if el.attrib.get('type', 'single') == 'single':
+                    try:
+                        marks = int(el.text)
+                    except ValueError:
+                        raise NotationDataError(f'<tremolo> on line {el.sourceline} has an invalid contents.')
+                    event_markings.append(TremoloMarking(marks))
 
     def parse_slur(self, slur_el, note):
         slur_type = slur_el.attrib.get('type')
