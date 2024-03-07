@@ -52,7 +52,7 @@
                         "octave": 5,
                         "step": "E"
                       },
-                      "tied": {
+                      "tie": {
                         "target": "note3"
                       }
                     }
@@ -84,7 +84,7 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tied": {
+                      "tie": {
                         "target": "note5"
                       }
                     }
@@ -110,7 +110,7 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tied": {
+                      "tie": {
                         "target": "note6"
                       }
                     }
