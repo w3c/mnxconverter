@@ -487,6 +487,7 @@ class MusicXMLReader:
         num_dots = 0
         beams = []
         closed_tuplet_numbers = []
+        event_markings = []
         time_mod = None
         note = Note(self.score, f'note{self.next_note_id}')
         for el in note_el:
@@ -507,7 +508,7 @@ class MusicXMLReader:
             elif tag == 'grace':
                 is_grace = True
             elif tag == 'notations':
-                new_closed_tuplet_numbers = self.parse_notations(el, note)
+                new_closed_tuplet_numbers, event_markings = self.parse_notations(el, note)
                 if new_closed_tuplet_numbers:
                     closed_tuplet_numbers.extend(new_closed_tuplet_numbers)
             elif tag == 'pitch':
@@ -578,6 +579,8 @@ class MusicXMLReader:
             self.current_beams.append((sequence, event, beams))
         if self.current_octave_shift:
             self.current_octave_shift[1].append(event_item)
+        if event_markings:
+            event.markings.extend(event_markings)
 
         # Return the duration of this event, to increment our internal position.
         # We don't do this if is_chord==True, because we assume the first <note>
@@ -596,9 +599,14 @@ class MusicXMLReader:
 
     def parse_notations(self, notations_el, note):
         closed_tuplet_numbers = []
+        event_markings = []
         for el in notations_el:
             tag = el.tag
-            if tag == 'slur':
+            if tag == 'articulations':
+                self.parse_articulations(el, event_markings)
+            elif tag == 'ornaments':
+                self.parse_ornaments(el, event_markings)
+            elif tag == 'slur':
                 self.parse_slur(el, note)
             elif tag == 'tied':
                 tied_type = el.attrib.get('type')
@@ -616,7 +624,46 @@ class MusicXMLReader:
                 closed_tuplet_number = self.parse_tuplet(el)
                 if closed_tuplet_number:
                     closed_tuplet_numbers.append(closed_tuplet_number)
-        return closed_tuplet_numbers
+        return closed_tuplet_numbers, event_markings
+
+    def parse_articulations(self, articulations_el, event_markings):
+        for el in articulations_el:
+            tag = el.tag
+            if tag == 'accent':
+                event_markings.append(AccentMarking())
+            elif tag == 'breath-mark':
+                event_markings.append(BreathMarking())
+            elif tag == 'detached-legato':
+                # MNX doesn't have the concept of a detached legato.
+                # It's represented simply by a staccato + tenuto.
+                event_markings.append(StaccatoMarking())
+                event_markings.append(TenutoMarking())
+            elif tag == 'soft-accent':
+                event_markings.append(SoftAccentMarking())
+            elif tag == 'spiccato':
+                event_markings.append(SpiccatoMarking())
+            elif tag == 'staccatissimo':
+                event_markings.append(StaccatissimoMarking())
+            elif tag == 'staccato':
+                event_markings.append(StaccatoMarking())
+            elif tag == 'stress':
+                event_markings.append(StressMarking())
+            elif tag == 'strong-accent':
+                event_markings.append(StrongAccentMarking())
+            elif tag == 'tenuto':
+                event_markings.append(TenutoMarking())
+            elif tag == 'unstress':
+                event_markings.append(UnstressMarking())
+
+    def parse_ornaments(self, ornaments_el, event_markings):
+        for el in ornaments_el:
+            tag = el.tag
+            if tag == 'tremolo':
+                try:
+                    marks = int(el.text)
+                except ValueError:
+                    raise NotationDataError(f'<tremolo> on line {el.sourceline} has an invalid contents.')
+                event_markings.append(TremoloMarking(marks))
 
     def parse_slur(self, slur_el, note):
         slur_type = slur_el.attrib.get('type')

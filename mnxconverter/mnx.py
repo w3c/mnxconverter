@@ -149,6 +149,8 @@ class MNXWriter:
         if event.slurs:
             encoded_slurs = (self.encode_slur(slur) for slur in event.slurs)
             result['slurs'] = list(s for s in encoded_slurs if s is not None)
+        if event.markings:
+            result['markings'] = self.encode_event_markings(event.markings)
         return result
 
     def encode_note_value(self, duration:RhythmicDuration):
@@ -202,6 +204,33 @@ class MNXWriter:
                 result['end-note'] = slur.end_note
         if slur.side is not None:
             result['side'] = SLUR_SIDES_FOR_EXPORT[slur.side]
+        return result
+
+    def encode_event_markings(self, markings:list):
+        result = {}
+        for marking in markings:
+            if isinstance(marking, AccentMarking):
+                result['accent'] = {}
+            elif isinstance(marking, BreathMarking):
+                result['breath'] = {}
+            elif isinstance(marking, SoftAccentMarking):
+                result['softAccent'] = {}
+            elif isinstance(marking, SpiccatoMarking):
+                result['spiccato'] = {}
+            elif isinstance(marking, StaccatissimoMarking):
+                result['staccatissimo'] = {}
+            elif isinstance(marking, StaccatoMarking):
+                result['staccato'] = {}
+            elif isinstance(marking, StressMarking):
+                result['stress'] = {}
+            elif isinstance(marking, StrongAccentMarking):
+                result['strongAccent'] = {}
+            elif isinstance(marking, TenutoMarking):
+                result['tenuto'] = {}
+            elif isinstance(marking, TremoloMarking):
+                result['tremolo'] = {'marks': marking.marks}
+            elif isinstance(marking, UnstressMarking):
+                result['unstress'] = {}
         return result
 
     def encode_tuplet(self, tuplet:Tuplet):

@@ -223,6 +223,13 @@ class Event(SequenceItem):
         self.duration = duration # RhythmicDuration
         self.event_items = [] # EventItem objects.
         self.slurs = [] # Slur objects.
+
+        # List of Marking objects. MNX uses a dictionary for this, hence enforcing
+        # uniqueness for markings (e.g., only a single staccato for an event), but
+        # we use a list here, so that we can catch duplicates and have the option
+        # to raise an error or warning during conversion.
+        self.markings = []
+
         self.is_referenced = False # True if this Event's event_id is referenced by another object in the Score.
 
     def is_rest(self):
@@ -230,6 +237,43 @@ class Event(SequenceItem):
             if isinstance(event_item, Note):
                 return False
         return True
+
+class Marking:
+    pass
+
+class AccentMarking(Marking):
+    pass
+
+class BreathMarking(Marking):
+    pass
+
+class SoftAccentMarking(Marking):
+    pass
+
+class SpiccatoMarking(Marking):
+    pass
+
+class StaccatoMarking(Marking):
+    pass
+
+class StaccatissimoMarking(Marking):
+    pass
+
+class StressMarking(Marking):
+    pass
+
+class StrongAccentMarking(Marking):
+    pass
+
+class TenutoMarking(Marking):
+    pass
+
+class TremoloMarking(Marking):
+    def __init__(self, marks:int):
+        self.marks = marks
+
+class UnstressMarking(Marking):
+    pass
 
 class Beam:
     def __init__(self):
