@@ -199,9 +199,9 @@ class MNXWriter:
                 return None
             result['target'] = slur.end_event_id
             if slur.start_note:
-                result['start-note'] = slur.start_note
+                result['startNote'] = slur.start_note
             if slur.end_note:
-                result['end-note'] = slur.end_note
+                result['endNote'] = slur.end_note
         if slur.side is not None:
             result['side'] = SLUR_SIDES_FOR_EXPORT[slur.side]
         return result

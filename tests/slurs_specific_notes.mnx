@@ -56,21 +56,21 @@
                   ],
                   "slurs": [
                     {
-                      "end-note": "note4",
+                      "endNote": "note4",
                       "side": "down",
-                      "start-note": "note1",
+                      "startNote": "note1",
                       "target": "ev2"
                     },
                     {
-                      "end-note": "note5",
+                      "endNote": "note5",
                       "side": "up",
-                      "start-note": "note2",
+                      "startNote": "note2",
                       "target": "ev2"
                     },
                     {
-                      "end-note": "note6",
+                      "endNote": "note6",
                       "side": "up",
-                      "start-note": "note3",
+                      "startNote": "note3",
                       "target": "ev2"
                     }
                   ],
