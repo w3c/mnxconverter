@@ -2,7 +2,7 @@
   "global": {
     "measures": [
       {
-        "repeat-start": {},
+        "repeatStart": {},
         "time": {
           "count": 4,
           "unit": 4
@@ -14,7 +14,7 @@
             1
           ]
         },
-        "repeat-end": {}
+        "repeatEnd": {}
       },
       {
         "ending": {
@@ -22,7 +22,7 @@
             2
           ]
         },
-        "repeat-end": {}
+        "repeatEnd": {}
       },
       {
         "ending": {

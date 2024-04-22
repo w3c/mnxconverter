@@ -2,8 +2,8 @@
   "global": {
     "measures": [
       {
-        "repeat-end": {},
-        "repeat-start": {},
+        "repeatEnd": {},
+        "repeatStart": {},
         "time": {
           "count": 4,
           "unit": 4

@@ -2,7 +2,7 @@
   "global": {
     "measures": [
       {
-        "repeat-end": {
+        "repeatEnd": {
           "times": 4
         },
         "time": {

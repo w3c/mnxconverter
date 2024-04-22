@@ -90,12 +90,12 @@ class MNXWriter:
         if bar.keysig and bar.keysig_changed():
             result['key'] = {'fifths': bar.keysig.fifths}
         if bar.start_repeat:
-            result['repeat-start'] = {}
+            result['repeatStart'] = {}
         if bar.end_repeat:
             repeat_end = {}
             if bar.end_repeat > 2:
                 repeat_end['times'] = bar.end_repeat
-            result['repeat-end'] = repeat_end
+            result['repeatEnd'] = repeat_end
         if bar.start_ending:
             # TODO: 'duration'
             result['ending'] = {
