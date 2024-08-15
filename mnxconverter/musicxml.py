@@ -42,14 +42,14 @@ SLUR_SIDES_FOR_IMPORT = {
     'below': Slur.SIDE_DOWN,
 }
 OCTAVE_SHIFT_TYPES_FOR_IMPORT = {
-    ('8', 'down'): OctaveShift.TYPE_8VA,
-    ('8', 'up'): OctaveShift.TYPE_8VB,
-    ('15', 'down'): OctaveShift.TYPE_15MA,
-    ('15', 'up'): OctaveShift.TYPE_15MB,
-    ('16', 'down'): OctaveShift.TYPE_15MA, # Non-standard
-    ('16', 'up'): OctaveShift.TYPE_15MB, # Non-standard
-    ('22', 'down'): OctaveShift.TYPE_22MA,
-    ('22', 'up'): OctaveShift.TYPE_22MB,
+    ('8', 'down'): Ottava.TYPE_8VA,
+    ('8', 'up'): Ottava.TYPE_8VB,
+    ('15', 'down'): Ottava.TYPE_15MA,
+    ('15', 'up'): Ottava.TYPE_15MB,
+    ('16', 'down'): Ottava.TYPE_15MA, # Non-standard
+    ('16', 'up'): Ottava.TYPE_15MB, # Non-standard
+    ('22', 'down'): Ottava.TYPE_22MA,
+    ('22', 'up'): Ottava.TYPE_22MB,
 }
 ENDING_TYPES_FOR_IMPORT = {
     'start': Ending.TYPE_START,
@@ -862,7 +862,7 @@ class MusicXMLReader:
         # note_list is assumed to be in order.
         start_event = self.score.get_event_containing_note(note_list[0])
         end_event = self.score.get_event_containing_note(note_list[-1])
-        start_event.insert_before(OctaveShift(
+        start_event.insert_before(Ottava(
             start_event.parent,
             shift_type=shift_type,
             end_pos=self.score.get_event_measure_location(end_event),

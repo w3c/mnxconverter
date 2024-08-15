@@ -35,12 +35,12 @@ SLUR_SIDES_FOR_EXPORT = {
     Slur.SIDE_DOWN: 'down',
 }
 OCTAVE_SHIFT_TYPES_FOR_EXPORT = {
-    OctaveShift.TYPE_8VA: '-8',
-    OctaveShift.TYPE_8VB: '8',
-    OctaveShift.TYPE_15MA: '-15',
-    OctaveShift.TYPE_15MB: '15',
-    OctaveShift.TYPE_22MA: '-22',
-    OctaveShift.TYPE_22MB: '22',
+    Ottava.TYPE_8VA: '1',
+    Ottava.TYPE_8VB: '-1',
+    Ottava.TYPE_15MA: '2',
+    Ottava.TYPE_15MB: '-2',
+    Ottava.TYPE_22MA: '3',
+    Ottava.TYPE_22MB: '-3',
 }
 ENDING_TYPES_FOR_EXPORT = {
     Ending.TYPE_START: 'start',
@@ -248,14 +248,14 @@ class MNXWriter:
         return result
 
     def encode_sequence_direction(self, direction:SequenceDirection):
-        if isinstance(direction, OctaveShift):
-            return self.encode_octave_shift(direction)
+        if isinstance(direction, Ottava):
+            return self.encode_ottava(direction)
 
-    def encode_octave_shift(self, octave_shift:OctaveShift):
+    def encode_ottava(self, ottava:Ottava):
         return {
-            'end': octave_shift.end_pos,
-            'type': 'octave-shift',
-            'value': OCTAVE_SHIFT_TYPES_FOR_EXPORT[octave_shift.shift_type],
+            'end': ottava.end_pos,
+            'type': 'ottava',
+            'value': OCTAVE_SHIFT_TYPES_FOR_EXPORT[ottava.shift_type],
         }
 
     def encode_grace_note_group(self, grace_note_group:GraceNoteGroup):

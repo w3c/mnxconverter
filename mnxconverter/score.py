@@ -288,7 +288,7 @@ class BeamHook:
 class SequenceDirection(SequenceItem):
     pass
 
-class OctaveShift(SequenceDirection):
+class Ottava(SequenceDirection):
     # These are arbitrary codes, used only internally.
     TYPE_8VA = 1
     TYPE_8VB = 2
