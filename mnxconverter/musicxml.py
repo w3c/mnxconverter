@@ -462,6 +462,7 @@ class MusicXMLReader:
     def parse_time(self, time_el):
         "Parses <time>. Returns a TimeSignature object."
         is_valid = True
+        symbol = time_el.attrib.get('symbol')
         try:
             numerator = int(time_el.find('beats').text)
         except (AttributeError, ValueError, TypeError):
@@ -471,8 +472,10 @@ class MusicXMLReader:
         except (AttributeError, ValueError, TypeError):
             is_valid = False
         if not is_valid:
-            if time_el.attrib.get('symbol') == 'common':
+            if symbol == 'common':
                 numerator, denominator = 4, 4
+            elif symbol == 'cut':
+                numerator, denominator = 2, 2
             else:
                 raise NotationDataError(f'<time> element on line {time_el.sourceline} contains invalid data.')
         return TimeSignature(numerator, denominator)
