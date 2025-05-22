@@ -478,7 +478,11 @@ class MusicXMLReader:
                 numerator, denominator = 2, 2
             else:
                 raise NotationDataError(f'<time> element on line {time_el.sourceline} contains invalid data.')
-        return TimeSignature(numerator, denominator)
+        return TimeSignature(
+            numerator,
+            denominator,
+            symbol if symbol in {'common', 'cut'} else None
+        )
 
     def parse_note(self, note_el, part, bar_part):
         sequence_id = ''

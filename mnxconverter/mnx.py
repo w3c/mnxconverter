@@ -87,6 +87,8 @@ class MNXWriter:
                 'count': bar.timesig.count,
                 'unit': bar.timesig.unit
             }
+            if bar.timesig.display is not None:
+                time_data['display'] = bar.timesig.display
             result['time'] = time_data
         if bar.keysig and bar.keysig_changed():
             result['key'] = {'fifths': bar.keysig.fifths}

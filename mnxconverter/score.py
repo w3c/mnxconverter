@@ -435,12 +435,13 @@ class Pitch:
         return self.transpose_chromatic(part.transpose)
 
 class TimeSignature:
-    def __init__(self, count, unit):
+    def __init__(self, count, unit, display=None):
         self.count = count # Top number
         self.unit = unit # Bottom number
+        self.display = display # 'common', 'cut' or None
 
     def equals(self, other):
-        return self.count == other.count and self.unit == other.unit
+        return self.count == other.count and self.unit == other.unit and self.display == other.display
 
 class KeySignature:
     def __init__(self, fifths):
