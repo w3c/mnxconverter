@@ -460,7 +460,7 @@ class MusicXMLReader:
         return KeySignature(fifths).to_concert(part)
 
     def parse_time(self, time_el):
-        "Parses <time>. Returns timesig as a list."
+        "Parses <time>. Returns a TimeSignature object."
         is_valid = True
         try:
             numerator = int(time_el.find('beats').text)
@@ -475,7 +475,7 @@ class MusicXMLReader:
                 numerator, denominator = 4, 4
             else:
                 raise NotationDataError(f'<time> element on line {time_el.sourceline} contains invalid data.')
-        return [numerator, denominator]
+        return TimeSignature(numerator, denominator)
 
     def parse_note(self, note_el, part, bar_part):
         sequence_id = ''

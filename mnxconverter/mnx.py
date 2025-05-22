@@ -83,10 +83,11 @@ class MNXWriter:
     def encode_measure_global(self, bar):
         result = {}
         if bar.timesig and bar.timesig_changed():
-            result['time'] = {
-                'count': bar.timesig[0],
-                'unit': bar.timesig[1]
+            time_data = {
+                'count': bar.timesig.count,
+                'unit': bar.timesig.unit
             }
+            result['time'] = time_data
         if bar.keysig and bar.keysig_changed():
             result['key'] = {'fifths': bar.keysig.fifths}
         if bar.start_repeat:

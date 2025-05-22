@@ -63,7 +63,7 @@ class Bar:
     def __init__(self, score, idx: int, timesig=None, keysig=None):
         self.score = score
         self.idx = idx # Zero-based index of this bar in the score.
-        self.timesig = timesig
+        self.timesig = timesig # TimeSignature object, or None.
         self.keysig = keysig # KeySignature object, in concert pitch.
         self.start_repeat = False
         self.end_repeat = 0
@@ -76,7 +76,12 @@ class Bar:
 
     def timesig_changed(self):
         "Returns True if this Bar's timesig has changed since the last bar."
-        return self.idx == 0 or self.previous().timesig != self.timesig
+        if self.idx == 0:
+            return True
+        if self.timesig is None:
+            return False
+        prev = self.previous().timesig
+        return prev is None or not prev.equals(self.timesig)
 
     def active_keysig(self):
         """
@@ -428,6 +433,14 @@ class Pitch:
         transposition into account.
         """
         return self.transpose_chromatic(part.transpose)
+
+class TimeSignature:
+    def __init__(self, count, unit):
+        self.count = count # Top number
+        self.unit = unit # Bottom number
+
+    def equals(self, other):
+        return self.count == other.count and self.unit == other.unit
 
 class KeySignature:
     def __init__(self, fifths):
