@@ -73,8 +73,7 @@
                       "startNote": "note3",
                       "target": "ev2"
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -103,8 +102,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }

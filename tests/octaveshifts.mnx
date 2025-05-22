@@ -39,8 +39,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -53,8 +52,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "end": "2:1/2",
@@ -72,8 +70,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }
@@ -94,8 +91,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -108,8 +104,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -122,8 +117,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }

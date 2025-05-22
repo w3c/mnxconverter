@@ -40,8 +40,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -55,8 +54,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -70,8 +68,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -85,8 +82,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -100,8 +96,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -115,8 +110,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -130,8 +124,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -145,8 +138,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -160,8 +152,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -175,8 +166,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -190,8 +180,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -205,8 +194,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -220,8 +208,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -235,8 +222,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -250,8 +236,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -265,8 +250,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }
@@ -288,8 +272,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -303,8 +286,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -318,8 +300,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -333,8 +314,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -348,8 +328,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -363,8 +342,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -378,8 +356,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -393,8 +370,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -408,8 +384,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -423,8 +398,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -438,8 +412,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -453,8 +426,7 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -468,8 +440,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -483,8 +454,7 @@
                         "step": "D"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -498,8 +468,7 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -513,15 +482,13 @@
                         "step": "F"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
                     "base": "half"
                   },
-                  "rest": {},
-                  "type": "event"
+                  "rest": {}
                 }
               ]
             }

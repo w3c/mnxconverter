@@ -43,8 +43,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -60,8 +59,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -77,8 +75,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -94,8 +91,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }
@@ -119,8 +115,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -136,8 +131,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -153,8 +147,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -170,8 +163,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }
@@ -195,8 +187,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -214,8 +205,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -232,8 +222,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -249,8 +238,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }

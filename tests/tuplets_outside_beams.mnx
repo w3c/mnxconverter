@@ -33,8 +33,7 @@
                       "duration": {
                         "base": "eighth"
                       },
-                      "rest": {},
-                      "type": "event"
+                      "rest": {}
                     },
                     {
                       "duration": {
@@ -48,8 +47,7 @@
                             "step": "C"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -63,8 +61,7 @@
                             "step": "E"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "inner": {
@@ -80,15 +77,13 @@
                   "duration": {
                     "base": "quarter"
                   },
-                  "rest": {},
-                  "type": "event"
+                  "rest": {}
                 },
                 {
                   "duration": {
                     "base": "half"
                   },
-                  "rest": {},
-                  "type": "event"
+                  "rest": {}
                 }
               ]
             }

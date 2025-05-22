@@ -40,8 +40,7 @@
                             "step": "B"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "type": "grace"
@@ -57,8 +56,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "content": [
@@ -73,8 +71,7 @@
                             "step": "A"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -87,8 +84,7 @@
                             "step": "B"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "type": "grace"
@@ -104,8 +100,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "content": [
@@ -120,8 +115,7 @@
                             "step": "G"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -134,8 +128,7 @@
                             "step": "A"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -148,8 +141,7 @@
                             "step": "B"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "type": "grace"
@@ -165,8 +157,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "content": [
@@ -181,8 +172,7 @@
                             "step": "F"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -195,8 +185,7 @@
                             "step": "G"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -209,8 +198,7 @@
                             "step": "A"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -223,8 +211,7 @@
                             "step": "B"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "type": "grace"
@@ -240,8 +227,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }

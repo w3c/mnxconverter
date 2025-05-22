@@ -39,8 +39,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "content": [
@@ -56,8 +55,7 @@
                             "step": "D"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -71,8 +69,7 @@
                             "step": "E"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     },
                     {
                       "duration": {
@@ -86,8 +83,7 @@
                             "step": "D"
                           }
                         }
-                      ],
-                      "type": "event"
+                      ]
                     }
                   ],
                   "inner": {
@@ -111,8 +107,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -126,15 +121,13 @@
                         "step": "E"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
                     "base": "half"
                   },
-                  "rest": {},
-                  "type": "event"
+                  "rest": {}
                 }
               ]
             }

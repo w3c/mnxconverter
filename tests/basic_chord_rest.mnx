@@ -50,15 +50,13 @@
                         "step": "G"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
                     "base": "half"
                   },
-                  "rest": {},
-                  "type": "event"
+                  "rest": {}
                 }
               ]
             }

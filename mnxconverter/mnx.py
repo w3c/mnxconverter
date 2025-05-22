@@ -141,7 +141,7 @@ class MNXWriter:
             return self.encode_grace_note_group(item)
 
     def encode_event(self, event):
-        result = {'type': 'event'}
+        result = {}
         result['duration'] = self.encode_note_value(event.duration)
         if event.is_referenced:
             result['id'] = event.event_id

@@ -38,8 +38,7 @@
                         "step": "C"
                       }
                     }
-                  ],
-                  "type": "event"
+                  ]
                 },
                 {
                   "duration": {
@@ -58,8 +57,7 @@
                       "location": "outgoing",
                       "side": "up"
                     }
-                  ],
-                  "type": "event"
+                  ]
                 }
               ]
             }
