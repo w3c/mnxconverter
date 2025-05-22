@@ -173,7 +173,10 @@ class MNXWriter:
         if note.rendered_acc:
             result['accidentalDisplay'] = {'show': True}
         if note.tie:
-            result['tie'] = {'target': note.tie.end_note.note_id}
+            tie_data = {'target': note.tie.end_note.note_id}
+            if note.tie.side is not None:
+                tie_data['side'] = note.tie.side
+            result['tie'] = tie_data
         return result
 
     def encode_pitch(self, pitch:Pitch):

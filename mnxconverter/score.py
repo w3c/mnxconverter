@@ -346,6 +346,7 @@ class Tie:
     def __init__(self, start_note=None, end_note=None):
         self.start_note = start_note # Note or None.
         self.end_note = end_note # Note or None.
+        self.side = None # None, 'up' or 'down'.
 
 class Slur:
     # These are arbitrary codes, used only internally.

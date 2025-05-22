@@ -618,7 +618,15 @@ class MusicXMLReader:
             elif tag == 'tied':
                 tied_type = el.attrib.get('type')
                 if tied_type == 'start':
-                    self.open_ties.append(Tie(note, None))
+                    tie = Tie(note, None)
+                    try:
+                        tie.side = {
+                            'over': 'up',
+                            'under': 'down',
+                        }[el.attrib.get('orientation', None)]
+                    except KeyError:
+                        pass
+                    self.open_ties.append(tie)
                 elif tied_type == 'stop':
                     # Find the Note that started this tie.
                     if not note.pitch:
