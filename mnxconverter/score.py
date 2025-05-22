@@ -336,11 +336,16 @@ class Note(EventItem):
         self.note_id = note_id
         self.pitch = None
         self.rendered_acc = None # None, or one of Note.ACCIDENTAL_*.
-        self.tie_end_note = None # ID of Note that ends a tie that starts on this Note.
+        self.tie = None # Tie object, if this Note starts a tie.
         self.is_referenced = False # True if this Note's note_id is referenced by another object in the Score.
 
 class Rest(EventItem):
     pass
+
+class Tie:
+    def __init__(self, start_note=None, end_note=None):
+        self.start_note = start_note # Note or None.
+        self.end_note = end_note # Note or None.
 
 class Slur:
     # These are arbitrary codes, used only internally.

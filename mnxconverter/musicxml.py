@@ -202,7 +202,7 @@ class MusicXMLReader:
         self.xml = xml
         self.score = Score()
         self.part_divisions = {} # Maps part ID to current <divisions> value.
-        self.open_ties = []
+        self.open_ties = [] # List of Tie objects.
         self.current_beams = [] # List of (Sequence, Event, beam_data)
         self.open_beams = {} # Maps part ID to {beam_number: Beam} dictionaries.
         self.open_tuplets = {} # Maps MusicXML tuplet number to event_list.
@@ -618,14 +618,15 @@ class MusicXMLReader:
             elif tag == 'tied':
                 tied_type = el.attrib.get('type')
                 if tied_type == 'start':
-                    self.open_ties.append(note)
+                    self.open_ties.append(Tie(note, None))
                 elif tied_type == 'stop':
                     # Find the Note that started this tie.
                     if not note.pitch:
                         raise NotationDataError(f'<tied> on line {el.sourceline} must come after <pitch> within <note>.')
-                    start_note = self.get_open_tie_by_end_note(note)
-                    if start_note:
-                        start_note.tie_end_note = note.note_id
+                    tie = self.get_open_tie_by_end_note(note)
+                    if tie:
+                        tie.end_note = note
+                        tie.start_note.tie = tie
                         note.is_referenced = True
             elif tag == 'tuplet':
                 closed_tuplet_number = self.parse_tuplet(el)
@@ -773,10 +774,10 @@ class MusicXMLReader:
             raise NotationDataError(f'<type> on line {type_el.sourceline} got unsupported value "{text}".')
 
     def get_open_tie_by_end_note(self, end_note):
-        for i, note in enumerate(self.open_ties):
-            if note != end_note and note.pitch == end_note.pitch:
+        for i, tie in enumerate(self.open_ties):
+            if tie.start_note != end_note and tie.start_note.pitch == end_note.pitch:
                 del self.open_ties[i]
-                return note
+                return tie
         return None
 
     def add_slur(self, slur, start_attrs, end_attrs, start_note, end_note):
