@@ -66,7 +66,10 @@ class MNXWriter:
 
     def get_filedata(self) -> bytes:
         result = {
-            'mnx': {'version': 1}
+            'mnx': {
+                'support': {'useAccidentalDisplay': True},
+                'version': 1
+            }
         }
         result['global'] = self.encode_global()
         result['parts'] = self.encode_parts()

@@ -20,6 +20,9 @@
     ]
   },
   "mnx": {
+    "support": {
+      "useAccidentalDisplay": true
+    },
     "version": 1
   },
   "parts": [
