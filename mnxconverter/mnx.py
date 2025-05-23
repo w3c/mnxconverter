@@ -47,10 +47,6 @@ ENDING_TYPES_FOR_EXPORT = {
     Ending.TYPE_STOP: 'stop',
     Ending.TYPE_DISCONTINUE: 'discontinue',
 }
-SLUR_INCOMPLETE_LOCATIONS_FOR_EXPORT = {
-    Slur.INCOMPLETE_TYPE_INCOMING: 'incoming',
-    Slur.INCOMPLETE_TYPE_OUTGOING: 'outgoing',
-}
 
 def put_score(score) -> bytes:
     writer = MNXWriter(score)
@@ -195,25 +191,17 @@ class MNXWriter:
         return result
 
     def encode_slur(self, slur:Slur):
-        result = {}
-        if slur.is_incomplete:
-            try:
-                result['location'] = SLUR_INCOMPLETE_LOCATIONS_FOR_EXPORT[slur.incomplete_type]
-            except KeyError:
-                # We got an unknown/missing slur.incomplete_type.
-                # Rather than generating invalid markup, we just
-                # return None.
-                return None
-        else:
-            if slur.end_event_id is None:
-                # Don't create the <slur>, because we don't have
-                # enough data.
-                return None
-            result['target'] = slur.end_event_id
-            if slur.start_note:
-                result['startNote'] = slur.start_note
-            if slur.end_note:
-                result['endNote'] = slur.end_note
+        if slur.end_event_id is None:
+            # Don't create the <slur>, because we don't have
+            # enough data.
+            return None
+        result = {
+            'target': slur.end_event_id
+        }
+        if slur.start_note:
+            result['startNote'] = slur.start_note
+        if slur.end_note:
+            result['endNote'] = slur.end_note
         if slur.side is not None:
             result['side'] = SLUR_SIDES_FOR_EXPORT[slur.side]
         return result

@@ -794,18 +794,9 @@ class MusicXMLReader:
         end_event = self.score.get_event_containing_note(end_note)
         if start_event == end_event:
             # This is an "incomplete slur" -- one that starts and
-            # ends on the same event. Determine whether it's incoming
-            # or outgoing by looking at the "default-x" attribute on
-            # the <slur type="start"> element. If it's negative,
-            # we interpret that as incoming.
-            slur.is_incomplete = True
-            if re.match(r'-\d', start_attrs.get('default-x', '')):
-                incomplete_type = Slur.INCOMPLETE_TYPE_INCOMING
-            else:
-                incomplete_type = Slur.INCOMPLETE_TYPE_OUTGOING
-            slur.incomplete_type = incomplete_type
+            # ends on the same event. TODO: Encode this as an l.v. tie.
+            pass
         else:
-            slur.is_incomplete = False
             slur.end_event_id = end_event.event_id
             end_event.is_referenced = True
 

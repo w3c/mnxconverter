@@ -352,13 +352,9 @@ class Slur:
     # These are arbitrary codes, used only internally.
     SIDE_UP = 1
     SIDE_DOWN = 2
-    INCOMPLETE_TYPE_INCOMING = 1
-    INCOMPLETE_TYPE_OUTGOING = 2
-    def __init__(self, end_event_id=None, side=None, is_incomplete=None, incomplete_type=None, start_note=None, end_note=None):
+    def __init__(self, end_event_id=None, side=None, start_note=None, end_note=None):
         self.end_event_id = end_event_id
         self.side = side
-        self.is_incomplete = is_incomplete
-        self.incomplete_type = incomplete_type
         self.start_note = start_note
         self.end_note = end_note
 
