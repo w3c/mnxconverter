@@ -28,10 +28,10 @@ class Score:
         self.parts = []
         self.bars = []
 
-    def get_event_measure_location(self, event):
+    def get_event_measure_rhythmic_position(self, event):
         """
-        Returns the given Event's measure location, as defined here:
-        https://w3c.github.io/mnx/specification/common/#measure-location
+        Returns a MeasureRhythmicPosition for the given Event, or None
+        if we can't find the Event in the Score.
         """
         for bar_idx, bar in enumerate(self.bars):
             for bar_part in bar.bar_parts.values():
@@ -39,7 +39,13 @@ class Score:
                     metrical_pos = Fraction(0, 1)
                     for seq_event in sequence.iter_events():
                         if seq_event == event:
-                            return f'{bar_idx+1}:{metrical_pos.numerator}/{metrical_pos.denominator}'
+                            return MeasureRhythmicPosition(
+                                bar_idx + 1,
+                                RhythmicPosition(
+                                    metrical_pos,
+                                    0 # TODO: Support grace_index.
+                                )
+                            )
                         metrical_pos += seq_event.duration.frac
         return ''
 
@@ -242,6 +248,16 @@ class Event(SequenceItem):
             if isinstance(event_item, Note):
                 return False
         return True
+
+class RhythmicPosition:
+    def __init__(self, fraction, grace_index):
+        self.fraction = fraction
+        self.grace_index = grace_index
+
+class MeasureRhythmicPosition:
+    def __init__(self, measure, position):
+        self.measure = measure
+        self.position = position
 
 class Marking:
     pass

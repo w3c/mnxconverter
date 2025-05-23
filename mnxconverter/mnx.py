@@ -252,8 +252,9 @@ class MNXWriter:
             return self.encode_ottava(direction)
 
     def encode_ottava(self, ottava:Ottava):
+        end_pos = ottava.end_pos
         return {
-            'end': ottava.end_pos,
+            'end': f'{end_pos.measure}:{end_pos.position.fraction.numerator}/{end_pos.position.fraction.denominator}',
             'type': 'ottava',
             'value': OCTAVE_SHIFT_TYPES_FOR_EXPORT[ottava.shift_type],
         }

@@ -872,7 +872,7 @@ class MusicXMLReader:
         start_event.insert_before(Ottava(
             start_event.parent,
             shift_type=shift_type,
-            end_pos=self.score.get_event_measure_location(end_event),
+            end_pos=self.score.get_event_measure_rhythmic_position(end_event),
         ))
 
     def heuristic_slur_targets_notes(self, slur, start_note, start_event, end_note, end_event, active_slurs):
