@@ -51,9 +51,11 @@
                         "octave": 5,
                         "step": "E"
                       },
-                      "tie": {
-                        "target": "note3"
-                      }
+                      "ties": [
+                        {
+                          "target": "note3"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -81,9 +83,11 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tie": {
-                        "target": "note5"
-                      }
+                      "ties": [
+                        {
+                          "target": "note5"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -106,9 +110,11 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tie": {
-                        "target": "note6"
-                      }
+                      "ties": [
+                        {
+                          "target": "note6"
+                        }
+                      ]
                     }
                   ]
                 },

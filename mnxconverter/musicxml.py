@@ -634,7 +634,7 @@ class MusicXMLReader:
                     tie = self.get_open_tie_by_end_note(note)
                     if tie:
                         tie.end_note = note
-                        tie.start_note.tie = tie
+                        tie.start_note.ties.append(tie)
                         note.is_referenced = True
             elif tag == 'tuplet':
                 closed_tuplet_number = self.parse_tuplet(el)

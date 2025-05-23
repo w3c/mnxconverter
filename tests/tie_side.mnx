@@ -37,10 +37,12 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tie": {
-                        "side": "up",
-                        "target": "note2"
-                      }
+                      "ties": [
+                        {
+                          "side": "up",
+                          "target": "note2"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -68,10 +70,12 @@
                         "octave": 5,
                         "step": "C"
                       },
-                      "tie": {
-                        "side": "down",
-                        "target": "note4"
-                      }
+                      "ties": [
+                        {
+                          "side": "down",
+                          "target": "note4"
+                        }
+                      ]
                     }
                   ]
                 },

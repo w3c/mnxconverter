@@ -336,7 +336,7 @@ class Note(EventItem):
         self.note_id = note_id
         self.pitch = None
         self.rendered_acc = None # None, or one of Note.ACCIDENTAL_*.
-        self.tie = None # Tie object, if this Note starts a tie.
+        self.ties = [] # Tie objects, for each tie that this Note starts.
         self.is_referenced = False # True if this Note's note_id is referenced by another object in the Score.
 
 class Rest(EventItem):
